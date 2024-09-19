@@ -1,0 +1,6 @@
+<!ELEMENT periodico (articulo+)>
+<!ELEMENT articulo (titulo,subtitulo?,contenido,autor)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT subtitulo (#PCDATA)>
+<!ELEMENT contenido (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>

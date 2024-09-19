@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Control entrada usuario</title>
+  </head>
+  <body>
+	<h1>Control entrada usuario</h1>
+	<form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+		<p>
+		  <label for="coduser">Código de usuario: </label>
+		  <input type="text" id="coduser" name="coduser" value="2376" disabled>
+		</p>
+		<p>
+		  <label for="nombre">Nombre usuario (*): </label>
+		  <input type="text" id="nombre" name="username" required="required" 
+		         maxlength="15" title="Nombre de usuario de hasta 15 caracteres">
+		</p>
+		<p>
+		  <label for="email">E-mail (*): </label>
+		  <input type="email" id="email" name="email" required 
+		         placeholder="tudireccion@email.com">
+		</p>
+		<p>
+		  <label for="dni">DNI (*):</label><br>
+		  <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Z]" required
+		         placeholder="00000000A" title="DNI con formato 00000000A">
+		</p>
+		<p>  
+		  <label for="edad">Edad (0-100): </label>
+		  <input type="number" id="edad" name="age" value="18" min="0" max="100">
+		</p>
+		<p>
+		  <label>Perfil de usuario: </label>
+		</p>
+		<p>
+		  <input type="radio" id="estandar" name="profile" value="standard" checked>
+		  <label for="estandar">Estándar</label><br/>
+		  <input type="radio" id="gestor" name="profile" value="gestor">
+		  <label for="gestor">Gestor</label>
+		</p>
+		<p>
+		  <label for="dpto">Elige tu departamento:</label>
+		</p>
+		<p>
+		  <select id="dpt" name="depart">
+			<option value="account">Contabilidad</option>
+			<option value="market" selected>Marketing</option>
+			<option value="selling">Ventas</option>
+			<option value="product">Producción</option>
+		  </select>
+		</p>
+		<p>
+		(*) Campos obligatorios
+		</p>
+		<input type="submit" value="Enviar">
+		<input type="reset" value="Borrar">
+	</form>
+  </body>
+</html>

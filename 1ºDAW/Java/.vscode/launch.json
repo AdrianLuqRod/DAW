@@ -1,0 +1,122 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PruebaCamion",
+      "request": "launch",
+      "mainClass": "e22.PruebaCamion",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaFunda",
+      "request": "launch",
+      "mainClass": "e21.PruebaFunda",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaConcesionario",
+      "request": "launch",
+      "mainClass": "e20.PruebaConcesionario",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "FiltrandoLists",
+      "request": "launch",
+      "mainClass": "e06.FiltrandoLists",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "ManipulandoCadenas",
+      "request": "launch",
+      "mainClass": "e05.ManipulandoCadenas",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "NombreDePerros",
+      "request": "launch",
+      "mainClass": "e04.NombreDePerros",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaAlmacenable",
+      "request": "launch",
+      "mainClass": "awrawra.PruebaAlmacenable",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaDocumentoTexto",
+      "request": "launch",
+      "mainClass": "e14.PruebaDocumentoTexto",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaImpresoras",
+      "request": "launch",
+      "mainClass": "exE01.PruebaImpresoras",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaDispositivo",
+      "request": "launch",
+      "mainClass": "e07.PruebaDispositivo",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaMamiferos",
+      "request": "launch",
+      "mainClass": "e06.PruebaMamiferos",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaMain",
+      "request": "launch",
+      "mainClass": "e05.PruebaMain",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaMain",
+      "request": "launch",
+      "mainClass": "e04.PruebaMain",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "Prueba",
+      "request": "launch",
+      "mainClass": "e02.Prueba",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "PruebaPersonaCoche",
+      "request": "launch",
+      "mainClass": "e01.PruebaPersonaCoche",
+      "projectName": "u04"
+    },
+    {
+      "type": "java",
+      "name": "MenuFutbolista",
+      "request": "launch",
+      "mainClass": "e08.MenuFutbolista",
+      "projectName": "u03"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${file}"
+    }
+  ]
+}

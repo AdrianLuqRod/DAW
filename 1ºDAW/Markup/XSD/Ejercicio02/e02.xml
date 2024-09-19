@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<premio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="e02.xsd">
+    <medalla>Oro</medalla>
+</premio> 

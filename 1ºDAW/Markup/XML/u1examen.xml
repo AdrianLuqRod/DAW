@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleados>
+    <empleado dni="22554488T">
+        <nombre>Juan Roig</nombre>
+        <cargo>Distribuidor</cargo>
+        <dispositivos>
+            <dispositivo id="1">
+                <tipo>Movil</tipo>
+                <marca>Huawei</marca>
+                <modelo>p10</modelo>
+            </dispositivo>
+            <dispositivo id="2">
+                <tipo>Tablet</tipo>
+                <marca>Samsung</marca>
+                <modelo>s8</modelo>
+            </dispositivo>
+        </dispositivos>
+    </empleado>
+    <empleado dni="33445522G">
+        <nombre>Ana Gil</nombre>
+        <cargo>Comercial</cargo>
+        <dispositivos>
+            <dispositivo id="1">
+                <tipo>Movil</tipo>
+                <marca>Huawei</marca>
+                <modelo>p10</modelo>
+            </dispositivo>
+            <dispositivo id="2">
+                <tipo>Tablet</tipo>
+                <marca>Samsung</marca>
+                <modelo>s8</modelo>
+            </dispositivo>
+        </dispositivos>
+    </empleado>
+    <empleado dni="44557788R">
+        <nombre>Sole Astudillo</nombre>
+        <cargo>Directora</cargo>
+        <dispositivos>
+            <dispositivo id="1">
+                <tipo>Movil</tipo>
+                <marca>Huawei</marca>
+                <modelo>p10</modelo>
+            </dispositivo>
+            <dispositivo id="2">
+                <tipo>Tablet</tipo>
+                <marca>Samsung</marca>
+                <modelo>s8</modelo>
+            </dispositivo>
+        </dispositivos>
+    </empleado>
+
+</empleados>

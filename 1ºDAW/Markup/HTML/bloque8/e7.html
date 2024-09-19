@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>REGISTRO DE ALTA EN JAMAZON</h1>
+    <form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+        <label for="cod">Código de usuario:</label> <br />
+        <input type="number" name="codigo" id="cod" value="23432" disabled> <br /><br />
+
+        <label for="nom">Nombre:</label> <br />
+        <input type="text" name="firstname" id="nom" value="Manolito" required>
+        <br /><br />
+        <label for="apl">Apellidos:</label>
+        <br />
+        <input type="text" name="surname" id="apl" value="Gafotas" required>
+        <br /><br />
+        <label for="eml">Correo electrónico:</label>
+        <br />
+        <input type="email" name="email" id="eml" value="manolito@gafotas.com" placeholder="your@email.com" required>
+        <br /><br />
+        <label for="anyo">Año de nacimiento:</label>
+        <br />
+        <input type="number" name="year" id="anyo" value="2000" min="1900">
+        <br /><br />
+        <label for="pweb">Si tienes página web, ponla aquí:</label>
+        <br />
+        <input type="url" name="url" id="pweb" value="http://manolito.power">
+        <br /><br />
+        <label for="col">Selecciona tu color favorito:</label>
+        <br />
+        <input type="color" name="color" id="col" value=#ffea00><br />
+        <br />
+        <label for=" psw1">Contraseña de 8 letras:</label>
+        <br />
+        <input type="password" name="pass1" id="psw1" pattern="[A-Za-z]{8}" title="8 letras mayúsculas o minúsculas">
+        <br /><br />
+        <label for="psw2">Vuelve a escribir tu contraseña (de 8 letras):</label>
+        <br />
+        <input type="password" name="pass2" id="psw2" pattern="[A-Za-z]{8}" title="8 letras mayúsculas o minúsculas">
+        <br /><br /><br /><br />
+
+
+        <button type="submit">Enviar</button>
+
+        <button onclick="Borrar()">Borrar</button>
+    </form>
+</body>
+<script>
+    function Borrar() {
+        document.getElementById("nom").value = ""
+        document.getElementById("eml").value = ""
+        document.getElementById("anyo").value = ""
+        document.getElementById("pweb").value = ""
+        document.getElementById("col").value = "#000000"
+        document.getElementById("psw1").value = ""
+        document.getElementById("psw2").value = ""
+        document.getElementById("apl").value = ""
+    }
+</script>
+
+</html>

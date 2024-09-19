@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>MyCompany</title>
+</head>
+
+<body>
+	<img src="images/logo-icon.png" alt="logo imagen" height="100">
+	<h1>MyCompany</h1>
+	<ul>
+		<a href="index.html">
+			<li>Home</li>
+		</a>
+		<a href="pages/services.html">
+			<li>Services</li>
+		</a>
+		<a href="subscribe.html">
+			<li>Subscribe</li>
+		</a>
+		<a href="pages/about-us.html">
+			<li>About us</li>
+		</a>
+	</ul>
+	<h2>Newsletter subscribe!</h2>
+	<h3>Don't miss any of our fresh news. Easy peasy, just subscribe!</h3>
+	<form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+		<label for="nom">Nombre:</label> <br>
+		<input type="text" name="firstname" id="nom" required> <br> <br>
+		<label for="apls">Apellidos:</label> <br>
+		<input type="text" name="lastname" id="apls" required> <br> <br>
+		<label for="mail">Dirección de correo electrónico:</label> <br>
+		<input type="email" name="email" id="mail" required> <br> <br>
+		<label for="sexo">Sexo:</label> <br>
+		<input type="radio" name="gender" id="gen" value="male" checked>
+		<label for="gen">Hombre</label> <br>
+		<input type="radio" name="gender" id="gen" value="female">
+		<label for="gen">Mujer</label> <br> <br>
+
+		<input type="submit" value="Subscribe">
+		<input type="reset" value="Reset">
+	</form>
+</body>
+
+</html>

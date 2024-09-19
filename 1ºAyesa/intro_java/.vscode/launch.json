@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PruebaPluma",
+      "request": "launch",
+      "mainClass": "_07ficheros.ej02.PruebaPluma",
+      "projectName": "intro_java"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${file}"
+    }
+  ]
+}

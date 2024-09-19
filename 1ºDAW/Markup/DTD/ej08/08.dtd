@@ -1,0 +1,7 @@
+<!ELEMENT venta-vehiculos (vehiculo+)>
+<!ELEMENT vehiculo (marca, modelo, propietario?)>
+<!ATTLIST vehiculo matricula CDATA "0000-AAA">
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT modelo (#PCDATA)>
+<!ELEMENT propietario (#PCDATA)>
+<!ATTLIST propietario dni CDATA #REQUIRED>

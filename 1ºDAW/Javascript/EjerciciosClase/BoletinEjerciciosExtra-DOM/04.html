@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 80%;
+        margin: auto;
+      }
+
+      div {
+        margin-top: 20px;
+        width: 47%;
+        min-height: 500px;
+        display: inline-block;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .rojo {
+        color: red;
+      }
+
+      table {
+        margin-left: 50px;
+      }
+
+      table,
+      th,
+      td {
+        border: solid 1px black;
+        padding: 5px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Apilando libros</h1>
+    <button id="btn-apilar">Apila libro</button>
+    <button id="btn-desapilar">Desapila libro</button>
+    <br />
+    <div>
+      <table id="pila-libros"></table>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/013/674/319/non_2x/cartoon-wooden-table-vector.jpg"
+        height="100px"
+      />
+    </div>
+    <div>
+      <h2>Resultado de la operación:</h2>
+      <p id="mensaje"></p>
+    </div>
+    <script>
+      document
+        .querySelector("#btn-apilar")
+        .addEventListener("click", apilaLibro);
+
+      document
+        .querySelector("#btn-desapilar")
+        .addEventListener("click", desapilaLibro);
+
+      function apilaLibro() {
+        let tabla = document.querySelector("#pila-libros");
+        let fila = document.createElement("tr");
+        let libro = document.createElement("td");
+        let nombreLibro = generaNombreLibro();
+        libro.innerText = nombreLibro;
+        fila.appendChild(libro);
+        tabla.insertBefore(fila, tabla.children[0]);
+        let mensaje = document.querySelector("#mensaje");
+        mensaje.classList.remove("rojo");
+        mensaje.innerText = "Se ha apilado el " + nombreLibro;
+      }
+
+      function desapilaLibro() {
+        let tabla = document.querySelector("#pila-libros");
+        let mensaje = document.querySelector("#mensaje");
+        let primero = tabla.children[0];
+        if (primero !== undefined) {
+          tabla.removeChild(primero);
+          mensaje.innerText = "Se ha desapilado el " + primero.innerText;
+        } else {
+          mensaje.classList.add("rojo");
+          mensaje.innerText = "No hay mas libros que desapilar";
+        }
+      }
+
+      function generaNombreLibro() {
+        return "LIBRO " + Math.floor(Math.random() * 1000 + 1);
+      }
+    </script>
+  </body>
+</html>

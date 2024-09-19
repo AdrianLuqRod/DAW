@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servidores>
+    <servidor ip="151.236.38.141">
+        <server_alias>ProfeServer</server_alias>
+        <os>Ubuntu 16 español</os>
+        <asignado_a>Kike</asignado_a>
+    </servidor>
+    <servidor ip="85.234.128.180">
+        <server_alias>LuisServer</server_alias>
+        <os>Ubuntu 16 español</os>
+        <asignado_a>Luis</asignado_a>
+    </servidor>
+    <servidor ip="65.234.128.168">
+        <server_alias>IsmaelServer</server_alias>
+        <os>Ubuntu 16 español</os>
+        <asignado_a>Ismael</asignado_a>
+    </servidor>
+</servidores>

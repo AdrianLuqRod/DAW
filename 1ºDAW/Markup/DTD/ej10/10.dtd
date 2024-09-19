@@ -1,0 +1,34 @@
+<!ELEMENT clientes-empresa (cliente+)>
+
+<!ELEMENT cliente (nombre,apellidos,dispositivos)>
+<!ATTLIST cliente id ID #REQUIRED>
+<!ATTLIST cliente dni CDATA #REQUIRED>
+<!ATTLIST cliente telefono CDATA #REQUIRED>
+<!ATTLIST cliente email CDATA #IMPLIED>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT apellidos (#PCDATA)>
+
+<!ELEMENT dispositivos (dispositivo+)>
+
+<!ELEMENT dispositivo (marca,modelo,reparaciones?)>
+<!ATTLIST dispositivo propietario IDREF #REQUIRED>
+<!ATTLIST dispositivo tipo (sobremesa | portátil | smartphone | monitor | televisor | tablet | otros) #REQUIRED>
+
+<!ELEMENT tipo (#PCDATA)>
+
+<!ELEMENT marca (#PCDATA)>
+
+<!ELEMENT modelo (#PCDATA)>
+
+<!ELEMENT reparaciones (reparacion+)>
+
+<!ELEMENT reparacion (fecha,descripcion,solucion)>
+<!ATTLIST reparacion numHoras CDATA "1">
+
+<!ELEMENT fecha (#PCDATA)>
+
+<!ELEMENT descripcion (#PCDATA)>
+
+<!ELEMENT solucion (#PCDATA)>

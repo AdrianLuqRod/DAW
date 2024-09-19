@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    background-color: white;
+}
+
+h2 {
+    text-align: center;
+    background-color: lightgray;
+}
+
+p {
+    color: white;
+}
+
+ul {
+    color: white;
+}
+
+.lista {
+    text-decoration: none;
+    color: purple
+}
+
+.hola {
+    color: blue
+}
+
+#underground {
+    text-decoration: underline;
+}
+
+.negrita {
+    font-weight: 600;
+}
+
+.cursiva {
+    font-style: italic;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Contactos telefónicos</h1>
+    <table id="contact-table"></table>
+    <script>
+      let contacts = [
+        { name: "Ángela", phone: 636021781 },
+        { name: "Bea", phone: 654256755 },
+        { name: "Juan", phone: 645888610 },
+        { name: "Miguel", phone: 615992156 },
+        { name: "Tomás", phone: 612415446 },
+        { name: "Zaida", phone: 955359613 },
+      ];
+      let header = "<tr><th>Nombre</th><th>Telefono</th></tr>";
+      let content = "";
+      for (let iterator of contacts) {
+        content += `<tr>
+                      <td>${iterator.name}</td>
+                      <td>${iterator.phone}</td>
+                  <tr>`;
+      }
+      let table = document.querySelector("#contact-table");
+      table.innerHTML = header + content;
+    </script>
+  </body>
+</html>

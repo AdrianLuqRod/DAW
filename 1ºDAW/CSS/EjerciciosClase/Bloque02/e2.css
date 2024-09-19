@@ -1,0 +1,18 @@
+#principal {
+  text-align: left;
+  color: orange;
+}
+#secundario {
+  text-align: left;
+  color: green;
+}
+h2 {
+  text-align: right;
+  color: blue;
+}
+.lorem {
+  color: black;
+}
+p {
+  color: red;
+}

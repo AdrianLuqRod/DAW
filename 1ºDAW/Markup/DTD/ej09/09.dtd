@@ -1,0 +1,32 @@
+<!ELEMENT clientes-empresa (cliente+)>
+
+<!ELEMENT cliente (nombre, apellidos, dispositivos)>
+<!ATTLIST cliente
+    dni CDATA #REQUIRED
+    telefono CDATA #REQUIRED
+    email CDATA #IMPLIED>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT apellidos (#PCDATA)>
+
+<!ELEMENT dispositivos (dispositivo+)>
+
+<!ELEMENT dispositivo (tipo, marca, modelo, reparaciones?)>
+
+<!ELEMENT tipo (#PCDATA)>
+
+<!ELEMENT marca (#PCDATA)>
+
+<!ELEMENT modelo (#PCDATA)>
+
+<!ELEMENT reparaciones (reparacion+)>
+
+<!ELEMENT reparacion (fecha, descripcion, solucion)>
+<!ATTLIST reparacion numHoras CDATA "1">
+
+<!ELEMENT fecha (#PCDATA)>
+
+<!ELEMENT descripcion (#PCDATA)>
+
+<!ELEMENT solucion (#PCDATA)>

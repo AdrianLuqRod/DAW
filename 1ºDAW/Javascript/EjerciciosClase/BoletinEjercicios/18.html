@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu periodico</title>
+  </head>
+
+  <body>
+    <h1 id="titular">Pon tu título aquí</h1>
+    <p id="parrafo">Esto es un párrafo de muestra</p>
+    <script>
+      let tituloUsuario = prompt("Dime el titular");
+      let parrafoUsuario = prompt("Dime el párrafo de la noticia ");
+      let titular = document.querySelector("#titular");
+      let parrafo = document.querySelector("#parrafo");
+      titular.innerText = tituloUsuario;
+      parrafo.innerHTML = `<a href="https://developer.mozilla.org/es/">
+                                ${parrafoUsuario}
+                            </a>`;
+    </script>
+  </body>
+</html>

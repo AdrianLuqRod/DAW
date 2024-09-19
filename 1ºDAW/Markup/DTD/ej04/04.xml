@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE matricula SYSTEM "04.dtd">
+<matricula>
+    <personal>
+        <dni>99223366M</dni>
+        <nombre>Juan Pardo Martín</nombre>
+        <titulacion>Ingeniería Informática</titulacion>
+        <curso_academico>2020/2021</curso_academico>
+        <domicilios>
+            <domicilio>
+                <nombre>C/ Principal nº1</nombre>
+            </domicilio>
+            <domicilio>
+                <nombre>C/ Secundaria nº2</nombre>
+            </domicilio>
+        </domicilios>
+    </personal>
+    <pago>
+        <tipo_matricula>Matrícula Ordinaria</tipo_matricula>
+        <tipo_pago>
+            <efectivo />
+        </tipo_pago>
+    </pago>
+</matricula>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="clientes-empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" type="xs:string" />
+                            <xs:element name="apellidos" type="xs:string" />
+                            <xs:element name="dispositivos">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dispositivo" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="tipo" type="xs:string" />
+                                                    <xs:element name="marca" type="xs:string" />
+                                                    <xs:element name="modelo" type="xs:string" />
+                                                    <xs:element name="reparaciones" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="reparacion" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="fecha" type="xs:date" />
+                                                                            <xs:element name="descripcion" type="xs:string" />
+                                                                            <xs:element name="solucion" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="numHoras" type="xs:integer" default="1" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="dni" use="required" />
+                        <xs:attribute name="telefono" type="xs:integer" use="required" />
+                        <xs:attribute name="email" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

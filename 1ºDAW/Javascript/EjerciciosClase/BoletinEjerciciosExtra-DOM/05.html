@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Sotero</title>
+    <style>
+      body {
+        width: 60%;
+        margin: auto;
+      }
+      li,
+      button {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      #habitaciones {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #habitaciones li {
+        margin: 3px;
+        padding: 0.4em;
+        font-size: 1.3em;
+        height: 18px;
+        width: 230px;
+        border: 1px solid grey;
+        cursor: pointer;
+        background-color: lightgreen;
+      }
+
+      #habitaciones .ocupada {
+        background: red;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hotel Sotero 4 estrellas</h1>
+    <h2>Estado de las habitaciones:</h2>
+    <ul id="habitaciones">
+      <li class="habitacion">Habitación 101: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 102: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 103: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 104: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 201: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 202: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 203: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+      <li class="habitacion">Habitación 204: libre</li>
+      <button class="boton">Ocupar</button
+      ><br />
+    </ul>
+
+    <script>
+      let botones = document.querySelectorAll(".boton");
+      for (let boton of botones) {
+        boton.addEventListener("click", cambiaEstado);
+      }
+
+      function cambiaEstado(event) {
+        let habitacion = event.target.previousElementSibling;
+        if (event.target.innerText === "Ocupar") {
+          // Marcamos la habitación como ocupada
+          habitacion.innerText = habitacion.innerText.replace(
+            "libre",
+            "ocupada"
+          );
+          // Cambiamos el color de fondo del elemento
+          habitacion.classList.add("ocupada");
+          // Cambiamos el texto del botón a "Liberar"
+          event.target.innerText = "libre";
+        } else {
+          // Marcamos la habitación como libre
+          habitacion.innerText = habitacion.innerText.replace(
+            "ocupada",
+            "libre"
+          );
+          // Cambiamos el color de fondo del elemento
+          habitacion.classList.remove("ocupada");
+          // Cambiamos el texto del botón "Ocupar"
+          event.target.innerText = "Ocupar";
+        }
+      }
+    </script>
+  </body>
+</html>

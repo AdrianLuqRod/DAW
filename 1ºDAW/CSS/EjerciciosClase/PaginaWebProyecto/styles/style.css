@@ -1,0 +1,544 @@
+body {
+  background-image: url(../img/02.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  font-family: "Poppins";
+  margin: auto;
+  flex-direction: column;
+  text-align: justify;
+}
+
+body p {
+  text-align: justify;
+  text-align-last: center;
+}
+
+.header {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #151515;
+  align-items: center;
+  z-index: 1000;
+  padding: 5px;
+  font-family: "Righteous", sans-serif;
+}
+
+.footer-principal {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #151515;
+  align-items: center;
+  z-index: 1000;
+  padding: 5px;
+  font-family: "Righteous", sans-serif;
+}
+
+.footer-secundario {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #151515;
+  align-items: center;
+  z-index: 1000;
+  padding: 5px;
+  font-family: "Righteous", sans-serif;
+}
+
+.logo-terminos {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  width: 340px;
+}
+
+.logo-terminos .logo {
+  padding-left: 45px;
+  padding-right: 45px;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
+  font-size: xx-large;
+  letter-spacing: 1.6px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000,
+    0 0 80px #ff0000, 0 0 120px #ff0000;
+}
+
+.logo-terminos .terminos {
+  text-align: center;
+  margin-top: -10%;
+}
+
+.logo-terminos .terminos p a {
+  letter-spacing: 1.6px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo-terminos .terminos p a:hover {
+  text-decoration: underline;
+}
+
+.header .logo-rrss {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  width: 340px;
+}
+
+.header .logo-rrss .logo {
+  padding-left: 45px;
+  padding-right: 45px;
+  margin-bottom: -7%;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
+  font-size: large;
+  height: 60px;
+}
+
+.header .logo-rrss .rrss {
+  display: inline-flex;
+  justify-content: center;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.header .mainLogo-titulo {
+  padding-left: 45px;
+  padding-right: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-principal .main-titulo {
+  text-decoration: none;
+}
+
+.global-container .header .form {
+  width: 340px;
+  padding-left: 45px;
+  padding-right: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .form .botones {
+  position: relative;
+  display: inline-flex;
+  margin: 5px;
+  height: 50px;
+  width: 155px;
+}
+
+.global-container .header .form .botones a {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  color: #fff;
+  z-index: 1;
+  letter-spacing: 1.6px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.main-container {
+  margin: 80px;
+}
+
+/* Aquí se hace el circulo y se recrea su contenido acorde al tamaño */
+.rrss .icon {
+  position: relative;
+  background-color: #ffff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  list-style: none;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.26, 1.55);
+}
+
+.header .logo h2 {
+  letter-spacing: 1.6px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000,
+    0 0 80px #ff0000, 0 0 120px #ff0000;
+}
+
+.header .logo-rrss .rrss .links-style {
+  display: flex;
+  text-decoration: none;
+  color: #151515;
+}
+
+.global-container .principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1%;
+  width: 50%;
+  text-align: center;
+}
+
+.global-container .principal .formulario-registro {
+  width: 420px;
+  background: #151515;
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.global-container .principal .formulario-registro h1 {
+  font-size: 36px;
+  margin: auto;
+}
+
+.global-container .principal .formulario-registro .registro .caja-texto {
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.global-container .principal .formulario-registro .registro .caja-texto input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 5%;
+  text-align: center;
+}
+
+.global-container .principal .formulario-registro .registro .seleccion-gustos {
+  margin: 24px;
+}
+
+.global-container .principal .formulario-registro .registro .btn {
+  margin: auto;
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #151515;
+  font-weight: 600;
+}
+
+.global-container .principal .formulario-registro .registro .login-link {
+  font-size: 16px;
+}
+
+.global-container .principal .formulario-registro .registro .login-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.global-container
+  .principal
+  .formulario-registro
+  .registro
+  .login-link
+  p
+  a:hover {
+  text-decoration: underline;
+}
+
+.principal-exito {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin: auto;
+  margin-top: 112px;
+  padding: 5%;
+  text-align: center;
+  background-color: #151515;
+  width: 50%;
+  border-radius: 50px;
+}
+
+.principal-exito p {
+  font-family: "Righteous", sans-serif;
+  font-size: 33px;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.global-container .main-container .noticia-mensual {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  padding: 20px;
+  background: #151515;
+  border-radius: 40px;
+}
+
+.global-container .main-container .noticia-mensual .titulo {
+  padding: 20px;
+  text-align: center;
+}
+
+.global-container .main-container .noticia-mensual .noticia-resumen {
+  padding: 20px;
+  text-align: center;
+}
+
+.global-container .main-container .noticia-mensual .imagen-noticia {
+  padding: 20px;
+}
+
+.global-container .main-mensual {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 80px;
+  padding: 40px;
+  background-color: #151515;
+  border-radius: 40px;
+}
+
+.global-container .main-mensual .imagen-texto {
+  display: inline-flex;
+  align-items: center;
+}
+
+.global-container img {
+  border-radius: 40px;
+}
+
+.global-container .main-mensual .imagen-texto .texto {
+  padding: 40px;
+  text-align: justify;
+  text-align-last: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.global-container .main-container .noticia-semanal {
+  position: sticky;
+  display: flex;
+  float: right;
+  top: 190px;
+  width: 300px;
+  height: 820px;
+  background-color: #151515;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 40px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.global-container .main-container img {
+  border-radius: 40px;
+}
+
+.global-container .main-video {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  width: 650px;
+  height: 400px;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #151515;
+  border-radius: 40px;
+}
+
+.global-container .main-video video {
+  margin: auto;
+  border-radius: 40px;
+}
+
+.global-container .main-container .noticias {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  background-color: #151515;
+  margin: 40px;
+  border-radius: 40px;
+  text-align: center;
+  align-items: center;
+}
+
+.titulo-noticia-normal,
+.resumen-noticia-normal,
+.imagen-noticia-normal {
+  padding: 20px;
+  margin: 20px;
+  font-size: 20px;
+}
+
+/* EFECTO DE LOS BOTONES DEL FORMULARIO, FONDO & SPACING */
+
+.global-container .header .form .botones:hover a {
+  letter-spacing: 4px;
+}
+
+.global-container .header .form .botones a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(45deg) translateX(0);
+  transition: 0.5s;
+}
+
+.global-container .header .form .botones:hover a::before {
+  transform: skewX(45deg) translateX(200%);
+}
+
+.rrss .instagram:hover,
+.rrss .instagram:hover .textoIcono,
+.rrss .instagram:hover .textoIcono::before {
+  background-color: #c32aa3;
+  box-shadow: 0 0 5px #c32aa3;
+  color: #fff;
+}
+
+.rrss .youtube:hover,
+.rrss .youtube:hover .textoIcono,
+.rrss .youtube:hover .textoIcono::before {
+  background-color: #ff0000;
+  box-shadow: 0 0 5px #ff0000;
+  color: #fff;
+}
+
+.rrss .twitter:hover,
+.rrss .twitter:hover .textoIcono,
+.rrss .twitter:hover .textoIcono::before {
+  background-color: #1da1f2;
+  box-shadow: 0 0 5px #1da1f2;
+  color: #fff;
+}
+
+/* ANIMACION DESLIZANTE*/
+
+/* -Animacion */
+.rrss .icon:hover .textoIcono {
+  bottom: -35px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/*  AQUI SE PREPARA LA CAJA DE TEXTO DE LAS RRSS */
+.rrss .textoIcono {
+  position: absolute;
+  bottom: 0;
+  font-size: 12.8px;
+  background-color: #ffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.26, 1.55);
+}
+
+/* AQUI SE PREPARA EL CUADRADO GIRADO QUE HACE FUNCION DE FLECHA PARA LA CAJA DE TEXTO */
+
+.rrss .textoIcono::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffff;
+  top: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.26, 1.55);
+}
+
+/*  AQUI SE HACE EL LOGO PRINCIPAL CON EFECTO BLINK ENTRE 2 COLORES + EFECTO NEON */
+
+.titulo-principal h1 {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #ffffff;
+  letter-spacing: 3.2px;
+  font-family: "Righteous", sans-serif;
+  font-size: 330%;
+  text-align: center;
+  animation: blink 3s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #151515;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+      0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #ffffff;
+  }
+}
+/* Primera cosa que se hace, transiciona con ese color y se le quita el efecto neon para crear ese efecto de blink */
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #151515;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 120px #ff0000;
+  }
+}

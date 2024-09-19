@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE informe SYSTEM "06.dtd">
+<informe>
+    <cabecera>
+        <editorial>Ediciones Sotero</editorial>
+        <descripcion>Informe de ventas</descripcion>
+        <fecha-informe>07/02/2019</fecha-informe>
+    </cabecera>
+    <datos>
+        <region-norte>
+            <ventas-trimestrales>
+                <trimestre>1</trimestre>
+                <libros-vendidos>24000</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>2</trimestre>
+                <libros-vendidos>38600</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>3</trimestre>
+                <libros-vendidos>NO_INFO</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>4</trimestre>
+                <libros-vendidos>NO_INFO</libros-vendidos>
+            </ventas-trimestrales>
+        </region-norte>
+        <region-centro>
+            <ventas-trimestrales>
+                <trimestre>1</trimestre>
+                <libros-vendidos>NO_INFO</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>2</trimestre>
+                <libros-vendidos>16080</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>3</trimestre>
+                <libros-vendidos>25000</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>4</trimestre>
+                <libros-vendidos>29000</libros-vendidos>
+            </ventas-trimestrales>
+        </region-centro>
+        <region-sur>
+            <ventas-trimestrales>
+                <trimestre>1</trimestre>
+                <libros-vendidos>27000</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>2</trimestre>
+                <libros-vendidos>31400</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>3</trimestre>
+                <libros-vendidos>40100</libros-vendidos>
+            </ventas-trimestrales>
+            <ventas-trimestrales>
+                <trimestre>4</trimestre>
+                <libros-vendidos>30000</libros-vendidos>
+            </ventas-trimestrales>
+        </region-sur>
+    </datos>
+</informe>

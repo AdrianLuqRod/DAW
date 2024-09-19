@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rejilla imágenes</title>
+    <style>
+      * {
+        box-sizing: content-box;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      .column {
+        text-align: center;
+        vertical-align: top;
+        display: inline-block;
+        width: 47%;
+        padding: 10px;
+      }
+      img {
+        box-shadow: 10px 10px 10px black;
+        height: 0px;
+        transition: height 2s;
+      }
+      .full-size {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/800px-Meisje_met_de_parel.jpg"
+          />
+        </div>
+        <div class="column">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/El_beso%28Gustav_Klimt%29.jpg/640px-El_beso%28Gustav_Klimt%29.jpg"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img
+            src="https://static3.museoreinasofia.es/sites/default/files/obras/AS02157.jpg"
+          />
+        </div>
+        <div class="column">
+          <img
+            src="https://ichef.bbci.co.uk/news/640/cpsprodpb/11D93/production/_121270137_gettyimages-584047706.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      function makeBigger(img) {
+        img.classList.add("full-size");
+      }
+
+      let images = document.querySelectorAll("img");
+
+      interval = 1000;
+      for (let img of images) {
+        setTimeout(function () {
+          makeBigger(img);
+        }, interval);
+        interval += 1000;
+      }
+    </script>
+  </body>
+</html>

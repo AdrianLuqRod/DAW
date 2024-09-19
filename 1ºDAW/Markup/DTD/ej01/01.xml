@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE programacion SYSTEM "01.dtd">
+<programacion>
+    <programa>
+        <nombre>Gran Hermano 8</nombre>
+        <canal>Tele 5</canal>
+        <inicio>22:00</inicio>
+    </programa>
+    <programa>
+        <nombre>Un chiguagua en Hollywood 2</nombre>
+        <canal>Antena 3</canal>
+        <inicio>16:00</inicio>
+    </programa>
+</programacion>

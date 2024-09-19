@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ab:abogado xmlns:ab="www.bufeteabogados.com">
+    <ab:nombre>Roberto Logano</ab:nombre>
+    <ab:email>rlogano@bufeteabogados.com</ab:email>
+    <ab:telefono>654987159</ab:telefono>
+    <casos>
+        <caso>
+            <descripcion>Tontito1</descripcion>
+            <cl:cliente xmlns:cl="www.bufeteabogados.com">
+                <cl:nombre>Pepe</cl:nombre>
+                <cl:email>pepe@soymuyguapo.com</cl:email>
+                <cl:telefono>567438242</cl:telefono>
+            </cl:cliente>
+        </caso>
+        <caso>
+            <descripcion>Tontito2</descripcion>
+            <cl:cliente xmlns:cl="www.bufeteabogados.com">
+                <cl:nombre>Juanito</cl:nombre>
+                <cl:email>juanito@soymuyguapo.com</cl:email>
+                <cl:telefono>643728913</cl:telefono>
+            </cl:cliente>
+        </caso>
+    </casos>
+</ab:abogado>

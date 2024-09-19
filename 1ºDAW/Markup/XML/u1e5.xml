@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF.8"?>
+
+<cartelera>
+    <pelicula>
+        <titulo>AQUELLAS JUERGAS UNIVERSITARIA</titulo>
+        <titulo_original>&apos;Old School&apos;</titulo_original>
+        <director>Todd Phillips</director>
+        <interpretes>Will Ferell...</interpretes>
+        <sinapsis><![CDATA[aqui iria todo el tochaco de texto.]]></sinapsis>
+        <enlace>http://www.oldschool-themovie.com</enlace>
+        <edad_permitida>Comedia autiraza para mayores de 16 años</edad_permitida>
+    </pelicula>
+</cartelera>

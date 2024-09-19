@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clientes-empresa SYSTEM "09.dtd">
+<clientes-empresa>
+    <cliente dni="12654123T" telefono="965656333">
+        <nombre>Juan</nombre>
+        <apellidos>Luis Guerra</apellidos>
+        <dispositivos>
+            <dispositivo>
+                <tipo>Portátil</tipo>
+                <marca>Toshiba</marca>
+                <modelo>Dynabook Tecra A40</modelo>
+                <reparaciones>
+                    <reparacion numHoras="2">
+                        <fecha>2024-01-01</fecha>
+                        <descripcion>La batería no funciona</descripcion>
+                        <solucion>Cambio de batería</solucion>
+                    </reparacion>
+                </reparaciones>
+            </dispositivo>
+        </dispositivos>
+    </cliente>
+    <cliente dni="62854854Z" telefono="918222333" email="luisml123@gmail.com">
+        <nombre>Luis</nombre>
+        <apellidos>Miguel López</apellidos>
+        <dispositivos>
+            <dispositivo>
+                <tipo>Móvil</tipo>
+                <marca>Apple</marca>
+                <modelo>iPhone X</modelo>
+            </dispositivo>
+            <dispositivo>
+                <tipo>Tablet</tipo>
+                <marca>Samsung</marca>
+                <modelo>Tab A8</modelo>
+            </dispositivo>
+        </dispositivos>
+    </cliente>
+</clientes-empresa>

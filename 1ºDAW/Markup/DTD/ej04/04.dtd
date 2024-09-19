@@ -1,0 +1,14 @@
+<!ELEMENT matricula (personal,pago)>
+<!ELEMENT personal (dni,nombre,titulacion,curso_academico,domicilios)>
+<!ELEMENT dni (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT titulacion (#PCDATA)>
+<!ELEMENT curso_academico (#PCDATA)>
+<!ELEMENT domicilios (domicilio+)>
+<!ELEMENT domicilio (nombre)>
+<!ELEMENT pago (tipo_matricula,tipo_pago)>
+<!ELEMENT tipo_matricula (#PCDATA)>
+<!ELEMENT tipo_pago (efectivo | transferencia | tarjeta)>
+<!ELEMENT efectivo EMPTY>
+<!ELEMENT transferencia EMPTY>
+<!ELEMENT tarjeta EMPTY>

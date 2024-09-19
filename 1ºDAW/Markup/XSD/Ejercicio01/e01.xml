@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cancion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="e01.xsd">
+    <banda>Europe</banda>
+    <titulo>The final countdown</titulo>
+    <letra>We're leavin' together...</letra>
+    <fecha-lanzamiento>1986</fecha-lanzamiento>
+</cancion>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu periodico</title>
+  </head>
+
+  <body>
+    <h1 id="titular">Pon tu título aquí</h1>
+    <p id="principal">Esto es un párrafo principal</p>
+    <p class="secundario">Este es el primer párrafo secundario</p>
+    <div>
+      <p class="secundario">Este es el segundo párrafo secundario</p>
+      <p class="secundario">Este es el tercer párrafo secundario</p>
+    </div>
+    <script>
+      console.log(document.querySelector("#principal"));
+      console.log(document.querySelector("#secundario"));
+      console.log(document.querySelector("div .secundario"));
+      console.log(document.querySelector("head title"));
+      console.log(document.querySelector("body"));
+      let parrafos = document.querySelectorAll("p");
+      for (let iterator of parrafos) {
+        console.log(iterator);
+      }
+    </script>
+  </body>
+</html>

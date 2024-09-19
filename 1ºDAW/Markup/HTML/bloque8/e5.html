@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+        <h1>ALTA DE NUEVO USUARIO</h1>
+        <label for="nom">Nombre:</label><br />
+        <input type="text" name="nombre" id="nom" value="Manuel"> <br />
+        <label for="apl1">Apellido 1:</label><br />
+        <input type="text" name="apellido1" id="apl1" value="López" readonly> <br />
+        <label for="apl2">Apellido 2:</label><br />
+        <input type="text" name="apellido2" id="apl2" value="Llanes"> <br />
+        <label>
+            Sexo: <br />
+        </label>
+        <input type="radio" name="sexo" id="hom" value="hombre" checked>
+        <label for="hom">Hombre</label> <br />
+        <input type="radio" name="sexo" id="muj">
+        <label for="muj">Mujer</label><br />
+        <label>
+            Intereses:<br />
+        </label>
+        <input type="checkbox" name="interes1" id="cult" value="cultura" checked>
+        <label for="cult">Cultura</label><br />
+        <input type="checkbox" name="interes2" id="dep" value="deportes" checked>
+        <label for="dep">Deportes</label><br />
+        <input type="checkbox" id="oci">
+        <label for="oci">Cultura</label><br /><br />
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>

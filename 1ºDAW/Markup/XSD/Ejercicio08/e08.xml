@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<venta-vehiculos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="e08.xsd">
+    <vehiculo matricula="4534-FRG">
+        <marca>Seat</marca>
+        <modelo>Ibiza</modelo>
+        <propietario dni="12654123T">Juan Luis Guerra</propietario>
+    </vehiculo>
+    <vehiculo matricula="8333-ABC">
+        <marca>Volvo</marca>
+        <modelo>S40</modelo>
+        <propietario dni="62854854Z">Luis Miguel López</propietario>
+    </vehiculo>
+    <vehiculo matricula="1234-ZAP">
+        <marca>Seat</marca>
+        <modelo>Toledo</modelo>
+    </vehiculo>
+    <vehiculo>
+        <marca>Fiat</marca>
+        <modelo>Punto</modelo>
+    </vehiculo>
+</venta-vehiculos>

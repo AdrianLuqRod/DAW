@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gasto_conductor>
+    <columna1 nombre="MES">
+        <fila1>Septiembre</fila1>
+        <fila2>Octubre</fila2>
+        <fila3>Noviembre</fila3>
+        <fila4>Diciembre</fila4>
+    </columna1>
+    <columna2 nombre="DIAS LECTIVOS">
+        <fila1>14</fila1>
+        <fila2>19</fila2>
+        <fila3>21</fila3>
+        <fila4>14</fila4>
+    </columna2>
+    <columna3 nombre="LITROS I/V">
+        <fila1>4,3</fila1>
+        <fila2>4,3</fila2>
+        <fila3>4,3</fila3>
+        <fila4>4,3</fila4>
+    </columna3>
+    <columna4 nombre="PRECIO/LITRO">
+        <fila1>1,05€</fila1>
+        <fila2>1,05€</fila2>
+        <fila3>1,05€</fila3>
+        <fila4>1,05€</fila4>
+    </columna4>
+    <columna5 nombre="TOTAL">
+        <fila1>63,21€</fila1>
+        <fila2>85,79€</fila2>
+        <fila3>94,82€</fila3>
+        <fila4>63,21€</fila4>
+    </columna5>
+
+</gasto_conductor>

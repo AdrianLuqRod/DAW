@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Tu próximo oponente aparecerá en 3, 2, 1</h1>
+    <h2></h2>
+    <img src="" />
+    <script>
+      function changeFighter() {
+        let fighters = [
+          {
+            name: "Blanka",
+            country: "Brazil",
+            image:
+              "https://isilionangel.files.wordpress.com/2012/10/blanka.png?w=584",
+          },
+          {
+            name: "Chun-Li",
+            country: "China",
+            image:
+              "https://i.pinimg.com/originals/a5/05/01/a50501331601d0936ce3b8db826ac148.jpg ",
+          },
+          {
+            name: "Zangief",
+            country: "Russia",
+            image:
+              "https://upload.wikimedia.org/wikipedia/en/7/70/Super_Zangief.png",
+          },
+          {
+            name: "Vega",
+            country: "Spain",
+            image: "https://upload.wikimedia.org/wikipedia/en/4/45/SSFVega.png",
+          },
+          {
+            name: "Ken",
+            country: "U.S.A.",
+            image:
+              "https://upload.wikimedia.org/wikipedia/en/2/2f/Ken_Masters_%28SF3__Third_Strike%29.png",
+          },
+        ];
+        // Escribe tu código aquí
+        let index = Math.floor(Math.random() * fighters.length);
+        let figther = fighter[index];
+        document.querySelector("h1").innerText = fighter.name;
+        document.querySelector("h2").innerText = fighter.country;
+        document.querySelector("img").src = fighter.image;
+      }
+      setTimeout(changeFighter, 3000);
+    </script>
+  </body>
+</html>

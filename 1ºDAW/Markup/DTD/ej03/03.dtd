@@ -1,0 +1,8 @@
+<!ELEMENT catalogo (producto+)>
+<!ELEMENT producto (nombre,vendedor?,precio,detalle*,opiniones?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT vendedor (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT detalle (#PCDATA)>
+<!ELEMENT opiniones (opinion+)>
+<!ELEMENT opinion (#PCDATA)>

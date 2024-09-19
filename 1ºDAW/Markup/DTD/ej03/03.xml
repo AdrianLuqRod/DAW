@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalogo SYSTEM "03.dtd">
+<catalogo>
+    <producto>
+        <nombre>Teclado inalámbrico Zeus 23Q</nombre>
+        <vendedor>Todo Teclados</vendedor>
+        <precio>23.90</precio>
+        <detalle>Opera en la frecuencia de 2.4 GHz</detalle>
+        <detalle>Hasta 20 metros de distancia</detalle>
+    </producto>
+    <producto>
+        <nombre>Smartwatch Pulserita Wear</nombre>
+        <precio>120.90</precio>
+        <opiniones>
+            <opinion>Mi abuela me toma mejor el pulso</opinion>
+            <opinion>No es resistente al agua</opinion>
+        </opiniones>
+    </producto>
+</catalogo>

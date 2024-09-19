@@ -1,0 +1,31 @@
+<!-- Declaramos el elemento traficoAereo que puede tener varios vuelos o ninguno-->
+<!ELEMENT traficoAereo (vuelo*)>
+
+<!ELEMENT vuelo (numeroVuelo,aerolinea,operadora?,estado,pasajeros)>
+
+<!ELEMENT numeroVuelo (#PCDATA)>
+
+<!ELEMENT aerolinea (#PCDATA)>
+
+<!ELEMENT operadora (#PCDATA)>
+
+<!ELEMENT estado (volando | retrasado | esperaPista)>
+<!ELEMENT volando EMPTY>
+<!ELEMENT retrasado EMPTY>
+<!ELEMENT esperaPista EMPTY>
+
+<!ELEMENT pasajeros (pasajero*)>
+
+<!ELEMENT pasajero (nombre,asiento?,equipajeFacturado?)>
+<!ATTLIST pasajero dni CDATA #REQUIRED>
+<!ATTLIST pasajero discapacidad CDATA #FIXED "sí">
+<!ATTLIST pasajero menorEdad CDATA "no" >
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT asiento (#PCDATA)>
+
+<!ELEMENT equipajeFacturado (bulto+)>
+
+<!ELEMENT bulto (#PCDATA)>
+<!ATTLIST bulto tipo (pesado | voluminoso) #IMPLIED>

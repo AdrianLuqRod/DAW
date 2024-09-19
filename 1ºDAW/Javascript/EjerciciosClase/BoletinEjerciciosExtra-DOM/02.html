@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 60%;
+        margin: auto;
+      }
+
+      table,
+      th,
+      td {
+        border: solid 1px black;
+        padding: 5px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      .invisible {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Genera un array de aleatorios y lo muestra en dos formatos</h1>
+    <table id="tabla-vertical" class="invisible"></table>
+    <br />
+    <table id="tabla-horizontal" class="invisible"></table>
+    <button id="btn-procesar">Procesar</button>
+
+    <script>
+      document
+        .querySelector("#btn-procesar")
+        .addEventListener("click", procesar);
+
+      function procesar() {
+        let array = creaArray();
+        pintaTablaVertical(array);
+        pintaTablaHorizontal(array);
+        ocultaBoton();
+      }
+
+      function creaArray() {
+        let array = [];
+        const TAM = 10;
+        for (let index = 0; index < TAM; index++) {
+          array[index] = Math.floor(Math.random() * 100 + 1);
+        }
+        return array;
+      }
+
+      function pintaTablaVertical(array) {
+        let tabla = document.querySelector("#tabla-vertical");
+        tabla.classList.remove("invisible");
+        let header = document.createElement("tr");
+        tabla.appendChild(header);
+        header.innerHTML = `<th>Posicion</th><th>Valor contenido</th>`;
+        for (let index = 0; index < array.length; index++) {
+          let fila = document.createElement("tr");
+          fila.innerHTML = `<td>${index}</td><td>${array[index]}</td>`;
+          tabla.appendChild(fila);
+        }
+      }
+
+      function pintaTablaHorizontal(array) {
+        let tabla = document.querySelector("#tabla-horizontal");
+        tabla.classList.remove("invisible");
+        let fila1 = document.createElement("tr");
+        let fila2 = document.createElement("tr");
+        fila1.innerHTML = `<th>Posicion</th>`;
+        fila2.innerHTML = `<th>Valor contenido</th>`;
+        tabla.appendChild(fila1);
+        tabla.appendChild(fila2);
+        for (let index = 0; index < array.length; index++) {
+          let contenido1 = document.createElement("td");
+          let contenido2 = document.createElement("td");
+          contenido1.innerText = index;
+          contenido2.innerText = array[index];
+          fila1.appendChild(contenido1);
+          fila2.appendChild(contenido2);
+        }
+        tabla.appendChild(fila1);
+        tabla.appendChild(fila2);
+      }
+
+      function ocultaBoton() {
+        let boton = document.querySelector("#btn-procesar");
+        boton.classList.add("invisible");
+      }
+    </script>
+  </body>
+</html>

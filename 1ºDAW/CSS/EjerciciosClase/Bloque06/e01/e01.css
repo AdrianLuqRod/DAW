@@ -1,0 +1,18 @@
+.caja {
+  width: 300px;
+  border-width: 15px;
+  border-style: solid;
+  margin: 20px;
+  padding: 50px;
+  text-align: center;
+}
+
+.enLinea {
+  border-color: purple;
+  display: inline-block;
+}
+
+.enFila {
+  border-color: green;
+  display: block;
+}

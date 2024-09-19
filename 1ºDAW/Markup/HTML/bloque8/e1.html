@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="nombre">Nombre: <br /></label>
+        <input type="text" id="nombre"><br />
+        <label for="apellido1">Apellido 1: <br /> </label>
+        <input type="text" id="apellido1"> <br />
+        <label for="apellido2">Apellido 2: <br /></label>
+        <input type="text" id="apellido2">
+        <p>
+            <label>
+                Perfil de usuario:
+            </label>
+        </p>
+        <input type="radio" id="gestor" name="perfil-usuario">
+        <label for="gestor">Gestor <br /> </label>
+        <input type="radio" id="usuario-estandar" name="perfil-usuario">
+        <label for="usuario-estandar">Usuario estándar</label>
+        <label>
+            <p>
+                Roles extra para el usuario:
+            </p>
+        </label>
+        <input type="checkbox" id="contabilidad" name="roles-extra">
+        <label for="contabilidad">Contabilidad <br /></label>
+        <input type="checkbox" id="finanzas" name="roles-extra">
+        <label for="finanzas">Finanzas <br /></label>
+        <input type="checkbox" id="marketing" name="roles-extra">
+        <label for="marketing">Marketing <br /><br /></label>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+    </form>
+</body>
+
+</html>

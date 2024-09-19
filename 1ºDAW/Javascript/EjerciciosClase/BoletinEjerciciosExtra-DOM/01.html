@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavadero coches</title>
+    <style>
+      body {
+        width: 60%;
+        margin: auto;
+      }
+
+      #maquinas {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #maquinas li {
+        margin: 3px;
+        padding: 0.4em;
+        font-size: 1.3em;
+        height: 18px;
+        width: 230px;
+        text-align: center;
+        border: 1px solid grey;
+        cursor: pointer;
+        background-color: lightgreen;
+      }
+      button {
+        margin: 20px;
+      }
+
+      #maquinas .ocupada {
+        background: red;
+        color: white;
+      }
+
+      #warning {
+        color: red;
+      }
+
+      .invisible {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Lavadero coches</h1>
+    <h2>Estado de las máquinas de lavado</h2>
+    <ul id="maquinas">
+      <li class="maquina">Máquina 0</li>
+      <li class="maquina">Máquina 1</li>
+      <li class="maquina">Máquina 2</li>
+      <li class="maquina">Máquina 3</li>
+      <li class="maquina">Máquina 4</li>
+    </ul>
+    <p id="warning" class="invisible"></p>
+    <button id="btn-ocupa">Ocupa máquina</button>
+    <button id="btn-libera">Libera máquina</button>
+
+    <script>
+      document
+        .querySelector("#btn-ocupa")
+        .addEventListener("click", ocupaMaquina);
+      document
+        .querySelector("#btn-libera")
+        .addEventListener("click", liberaMaquina);
+
+      function ocupaMaquina() {
+        const NUM_MAQUINAS = 5;
+
+        let numMaquina = Number(
+          prompt("Dime el número de la máquina a ocupar (0-4):")
+        );
+
+        if (numMaquina >= 0 && numMaquina < NUM_MAQUINAS) {
+          let arrayMaquinas = document.querySelectorAll(".maquina");
+          let maquina = arrayMaquinas[numMaquina];
+          maquina.classList.add("ocupada");
+        } else {
+          mostrarAdvertencia(
+            "Maquina con numero " + numMaquina + " no disponible"
+          );
+        }
+      }
+
+      function liberaMaquina() {
+        const NUM_MAQUINAS = 5;
+
+        let numMaquina = Number(
+          prompt("Dime el número de la máquina a liberar (0-4):")
+        );
+
+        if (numMaquina >= 0 && numMaquina < NUM_MAQUINAS) {
+          let arrayMaquinas = document.querySelectorAll(".maquina");
+          let maquina = arrayMaquinas[numMaquina];
+          maquina.classList.remove("ocupada");
+        } else {
+          mostrarAdvertencia(
+            "Maquina con numero " + numMaquina + " no disponible"
+          );
+        }
+      }
+
+      function mostrarAdvertencia(texto) {
+        let warning = document.querySelector("#warning");
+        warning.classList.remove("invisible");
+        warning.innerText = texto;
+        setTimeout(ocultarAdvertencia, 3000);
+      }
+
+      function ocultarAdvertencia() {
+        let warning = document.querySelector("#warning");
+        warning.classList.add("invisible");
+      }
+    </script>
+  </body>
+</html>

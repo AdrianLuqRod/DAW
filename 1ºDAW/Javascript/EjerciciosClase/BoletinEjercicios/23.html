@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Enlaces ascendentes</h1>
+    <ul>
+      <li><a href="#" target="_blank"></a></li>
+      <li><a href="#" target="_blank"></a></li>
+      <li><a href="#" target="_blank"></a></li>
+      <li><a href="#" target="_blank"></a></li>
+      <li><a href="#" target="_blank"></a></li>
+    </ul>
+    <script>
+      let pictures = [
+        {
+          name: "La joven de la perla",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/800px-Meisje_met_de_parel.jpg",
+        },
+        {
+          name: "El beso",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/El_beso%28Gustav_Klimt%29.jpg/640px-El_beso%28Gustav_Klimt%29.jpg",
+        },
+        {
+          name: "Mujer asomada a la ventana",
+          url: "https://static3.museoreinasofia.es/sites/default/files/obras/AS02157.jpg",
+        },
+        {
+          name: "Idilio en el mar",
+          url: "https://www.ecured.cu/images/8/80/Idilio-mar-sorolla_1.jpg",
+        },
+        {
+          name: "La gran ola",
+          url: "https://ichef.bbci.co.uk/news/640/cpsprodpb/11D93/production/_121270137_gettyimages-584047706.jpg",
+        },
+      ];
+      function rotateElements(array) {
+        let first = array[0];
+        array.shift();
+        array.push(first);
+      }
+      function replaceLinks(array) {
+        let links = document.querySelectorAll("a");
+        for (let i = 0; i < links.length; i++) {
+          links[i].innerText = array[i].name;
+          links[i].href = array[i].url;
+        }
+      }
+      setInterval(function () {
+        replaceLinks(pictures);
+        rotateElements(pictures);
+      }, 200); // Ejecuta la función cada 0.2 segundos
+    </script>
+  </body>
+</html>

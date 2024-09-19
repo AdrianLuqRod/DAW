@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empresas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="empresas.xsd">
+    <empresa cif="A12345678" telefono="616987654">
+        <nombre>Sotero Energías</nombre>
+        <direccion>C/ Santo Domingo de Guzmán S/N</direccion>
+        <codigoPostal>41920</codigoPostal>
+        <fechaConstitucion>2022-02-24</fechaConstitucion>
+        <energias>
+            <renovables>
+                <renovable procedencia="solar">
+                    <descripcion>Es aquella que obtenemos del sol.</descripcion>
+                    <ventajas>
+                        <ventaja>Es una energía limpia, renovable y sostenible.</ventaja>
+                        <ventaja>Es una fuente renovable e inagotable que se puede utilizar en todo el planeta.</ventaja>
+                    </ventajas>
+                    <desventajas>
+                        <desventaja>Inversión inicial.</desventaja>
+                        <desventaja>Dependencia del clima.</desventaja>
+                    </desventajas>
+                    <facturacion>15550.99</facturacion>
+                </renovable>
+            </renovables>
+            <noRenovables>
+                <noRenovable procedencia="petroleo">
+                    <descripcion>Es un combustible fósil.</descripcion>
+                    <ventajas>
+                        <ventaja>Es de fácil almacenamiento.</ventaja>
+                        <ventaja>Su obtención es continua.</ventaja>
+                    </ventajas>
+                    <desventajas>
+                        <desventaja>Es muy contaminante, debido a la combustión.</desventaja>
+                        <desventaja>Genera contaminación por derrames.</desventaja>
+                    </desventajas>
+                    <facturacion>120000</facturacion>
+                </noRenovable>
+            </noRenovables>
+        </energias>
+    </empresa>
+</empresas>

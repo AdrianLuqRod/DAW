@@ -1,0 +1,288 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PruebaCustomerAccessData",
+      "request": "launch",
+      "mainClass": "e08.PruebaCustomerAccessData",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "PruebaDelete",
+      "request": "launch",
+      "mainClass": "e06.PruebaDelete",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "PruebaUpdate",
+      "request": "launch",
+      "mainClass": "e05.PruebaUpdate",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "Consulta",
+      "request": "launch",
+      "mainClass": "e03.Consulta",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "Consulta",
+      "request": "launch",
+      "mainClass": "e02.Consulta",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "Consulta",
+      "request": "launch",
+      "mainClass": "e01.Consulta",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "DBUtils",
+      "request": "launch",
+      "mainClass": "e01.DBUtils",
+      "projectName": "u08"
+    },
+    {
+      "type": "java",
+      "name": "FerreteriaApp",
+      "request": "launch",
+      "mainClass": "examenSimulacro.FerreteriaApp",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaFlota",
+      "request": "launch",
+      "mainClass": "e11.PruebaFlota",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaNombresUnicos",
+      "request": "launch",
+      "mainClass": "e04.PruebaNombresUnicos",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaCuentaCorriente",
+      "request": "launch",
+      "mainClass": "e10.PruebaCuentaCorriente",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaBombilla",
+      "request": "launch",
+      "mainClass": "e09.PruebaBombilla",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaApartamento",
+      "request": "launch",
+      "mainClass": "e08.PruebaApartamento",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaApartamento",
+      "request": "launch",
+      "mainClass": "e07.PruebaApartamento",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaApartamento",
+      "request": "launch",
+      "mainClass": "e06.PruebaApartamento",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaColaPacientes",
+      "request": "launch",
+      "mainClass": "e05.PruebaColaPacientes",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaNombresUnicos",
+      "request": "launch",
+      "mainClass": "e03.PruebaNombresUnicos",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaColaPacientes",
+      "request": "launch",
+      "mainClass": "e02.PruebaColaPacientes",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaNombresUnicos",
+      "request": "launch",
+      "mainClass": "e01.PruebaNombresUnicos",
+      "projectName": "u06"
+    },
+    {
+      "type": "java",
+      "name": "PruebaSubvencion",
+      "request": "launch",
+      "mainClass": "simulacroEX.PruebaSubvencion",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "MapaHabitaciones",
+      "request": "launch",
+      "mainClass": "e18.MapaHabitaciones",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaMapaCliente",
+      "request": "launch",
+      "mainClass": "e17.PruebaMapaCliente",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaRecursos",
+      "request": "launch",
+      "mainClass": "e16.PruebaRecursos",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaSetPersona",
+      "request": "launch",
+      "mainClass": "e15.PruebaSetPersona",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "ConjuntoTelefonos",
+      "request": "launch",
+      "mainClass": "e14.ConjuntoTelefonos",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "Loteria",
+      "request": "launch",
+      "mainClass": "e13.Loteria",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "OperacionesConjuntos",
+      "request": "launch",
+      "mainClass": "e12.OperacionesConjuntos",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaConjuntos",
+      "request": "launch",
+      "mainClass": "e11.PruebaConjuntos",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaOrdenPersona",
+      "request": "launch",
+      "mainClass": "e10.PruebaOrdenPersona",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaOrdenPersonas",
+      "request": "launch",
+      "mainClass": "e09.PruebaOrdenPersonas",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaOrdenPersonas",
+      "request": "launch",
+      "mainClass": "e08.PruebaOrdenPersonas",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaOrdenPersonas",
+      "request": "launch",
+      "mainClass": "u07.PruebaOrdenPersonas",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "NombreDePerros",
+      "request": "launch",
+      "mainClass": "e04.NombreDePerros",
+      "projectName": "u05"
+    },
+    {
+      "type": "java",
+      "name": "PruebaConjuntoPersona",
+      "request": "launch",
+      "mainClass": "Extra.PruebaConjuntoPersona",
+      "projectName": "u03"
+    },
+    {
+      "type": "java",
+      "name": "FutbolistaMenu",
+      "request": "launch",
+      "mainClass": "e08.FutbolistaMenu",
+      "projectName": "u03",
+      "vmArgs": "-ea"
+    },
+    {
+      "type": "java",
+      "name": "ComparandoBusquedas",
+      "request": "launch",
+      "mainClass": "e07.ComparandoBusquedas",
+      "projectName": "u03",
+      "vmArgs": "-ea"
+    },
+    {
+      "type": "java",
+      "name": "Ciudades",
+      "request": "launch",
+      "mainClass": "e06.Ciudades",
+      "projectName": "u03",
+      "vmArgs": "-ea"
+    },
+    {
+      "type": "java",
+      "name": "OrdenarArrays",
+      "request": "launch",
+      "mainClass": "e05.OrdenarArrays",
+      "projectName": "u03",
+      "vmArgs": "-ea"
+    },
+    {
+      "type": "java",
+      "name": "PruebaOrdenadorAsertos",
+      "request": "launch",
+      "mainClass": "e03.PruebaOrdenadorAsertos",
+      "projectName": "u03",
+      "vmArgs": "-ea"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${file}"
+    }
+  ]
+}

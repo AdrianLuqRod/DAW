@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Sotero News</title>
+	</head>
+
+	<body>
+		<header>
+			<img src="images/logo-icon.png" alt="logo.icon" height="100">
+			<h1>Sotero News</h1>
+			<ul>
+				<li><a href="index.html">Home</li></a>
+				<li><a href="subscribe.html">Subscribe</li></a>
+			</ul>
+		</header>
+		<main>
+			<h2>Suscríbete para no perderte nada de nada</h2>
+			<h3>¿A qué esperas?</h3>
+			<form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+				<label for="mail">Dirección de correo electrónico:</label> <br />
+				<input type="email" name="usermail" id="mail" required> <br /><br />
+				<label for="int">Intereses:</label> <br />
+				<input type="checkbox" name="interests" id="cult" value="culture">
+				<label for="cult">Cultura</label> <br />
+				<input type="checkbox" name="interests" id="soc" value="society">
+				<label for="soc">Sociedad</label> <br />
+				<input type="checkbox" name="interests" id="dep" value="sport">
+				<label for="dep">Deportes</label> <br />
+				<input type="checkbox" name="interests" id="pol" value="politics">
+				<label for="pol">Política</label> <br /><br />
+
+				<input type="submit" value="Quiero suscribirme">
+				<input type="reset" value="Borrar">
+
+			</form>
+		</main>
+
+	</body>
+
+</html>

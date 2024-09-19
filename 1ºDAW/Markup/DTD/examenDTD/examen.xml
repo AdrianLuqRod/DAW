@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE traficoAereo SYSTEM "examen.dtd">
+<traficoAereo>
+    <vuelo>
+        <numeroVuelo>ABC123</numeroVuelo>
+        <aerolinea>AirlineX</aerolinea>
+        <operadora>OperadoraZ</operadora>
+        <estado>
+            <esperaPista />
+        </estado>
+        <pasajeros>
+            <pasajero dni="25874598A" discapacidad="sí">
+                <nombre>John Smith</nombre>
+                <asiento>23A</asiento>
+            </pasajero>
+            <pasajero dni="83332846B" menorEdad="sí">
+                <nombre>Alice Johnson</nombre>
+                <asiento>15F</asiento>
+            </pasajero>
+        </pasajeros>
+    </vuelo>
+    <vuelo>
+        <numeroVuelo>XYZ456</numeroVuelo>
+        <aerolinea>AirlineY</aerolinea>
+        <operadora>OperadoraZ</operadora>
+        <estado>
+            <esperaPista />
+        </estado>
+        <pasajeros>
+            <pasajero dni="35263274W">
+                <nombre>Maria Garcia</nombre>
+                <asiento>7C</asiento>
+                <equipajeFacturado>
+                    <bulto tipo="pesado">123523422</bulto>
+                    <bulto tipo="voluminoso">158874484</bulto>
+                </equipajeFacturado>
+            </pasajero>
+        </pasajeros>
+    </vuelo>
+</traficoAereo>

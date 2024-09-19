@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Declaramos el elemento empresas -->
+    <xs:element name="empresas">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Declaramos el elemento empresa -->
+                <xs:element name="empresa" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" type="xs:string" />
+                            <xs:element name="direccion" type="xs:string" />
+                            <xs:element name="codigoPostal" type="xs:integer" />
+                            <xs:element name="fechaConstitucion" type="xs:date" />
+                            <xs:element name="energias">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="renovables">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="renovable" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="descripcion" type="xs:string" />
+                                                                <xs:element name="ventajas" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ventaja" minOccurs="2" maxOccurs="5" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="desventajas" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="desventaja" minOccurs="2" maxOccurs="5" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="facturacion" type="xs:decimal" />
+                                                            </xs:sequence>
+                                                            <xs:attribute name="procedencia" default="otras" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="noRenovables" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="noRenovable" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="descripcion" type="xs:string" />
+                                                                <xs:element name="ventajas" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ventaja" minOccurs="2" maxOccurs="5" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="desventajas" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="desventaja" minOccurs="2" maxOccurs="5" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="facturacion" type="xs:decimal" />
+                                                            </xs:sequence>
+                                                            <xs:attribute name="procedencia" default="otras" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="cif" use="required" />
+                        <xs:attribute name="telefono" type="xs:integer" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

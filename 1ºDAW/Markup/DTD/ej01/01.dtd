@@ -1,0 +1,5 @@
+<!ELEMENT programacion (programa+)>
+<!ELEMENT programa (nombre,canal,inicio)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT canal (#PCDATA)>
+<!ELEMENT inicio (#PCDATA)>

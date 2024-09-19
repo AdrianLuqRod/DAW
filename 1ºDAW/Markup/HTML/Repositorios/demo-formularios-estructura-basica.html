@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>Demo Formularios</title>
+</head>
+
+<body>
+	<h1>Formulario de demostración</h1>
+	<form>
+		<p>
+			<label for="nombre">Nombre: </label>
+			<input type="text" id="nombre">
+			<!-- El valor del atributo 'for' del elemento 'label' 
+		       debe coincidir con el del 'id' del 'input' -->
+		</p>
+		<p>
+			<label for="apellido1">Apellido 1: </label>
+			<input type="text" id="apellido1">
+		</p>
+		<p>
+			<label for="apellido2">Apellido 2: </label>
+			<input type="text" id="apellido2">
+		</p>
+		<p>
+			<label>Sexo: </label>
+		</p>
+		<p>
+			<input type="radio" id="hombre" name="sexo">
+			<label for="hombre">Hombre</label><br />
+			<input type="radio" id="mujer" name="sexo">
+			<label for="mujer">Mujer</label>
+		</p>
+		<p>
+			<label>Intereses: </label>
+		</p>
+		<p>
+			<input type="checkbox" id="cultura">
+			<label for="cultura">Cultura</label><br />
+			<input type="checkbox" id="deportes">
+			<label for="deportes">Deportes</label><br />
+			<input type="checkbox" id="ocio">
+			<label for="ocio">Ocio</label>
+		</p>
+		<p>
+			<label for="coches">Elige tu marca de coches favorita:</label>
+		</p>
+		<p>
+			<select id="coches">
+				<option>Volvo</option>
+				<option>Saab</option>
+				<option>Fiat</option>
+				<option>Audi</option>
+			</select>
+		</p>
+		<input type="submit" value="Enviar">
+		<input type="reset" value="Borrar">
+	</form>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <script src="https://kit.fontawesome.com/b1df414aea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="global-container">
+        <div class="header">
+            <div class="logo-rrss">
+                <div class="logo">
+                    <h2>FakeSOCIALS</h2>
+                </div>
+                <ul class="rrss">
+                    <a href="https://www.instagram.com/" class="links-style" target="_blank">
+                        <li class="icon instagram">
+                            <span class="textoIcono">Instagram</span>
+                            <span class="fa-brands fa-instagram"></span>
+                        </li>
+                    </a>
+                    <a href="https://www.youtube.com/" class="links-style" target="_blank">
+                        <li class="icon youtube">
+                            <span class="textoIcono">Youtube</span>
+                            <span class="fa-brands fa-youtube"></span>
+                        </li>
+                    </a>
+                    <a href="https://twitter.com/" class="links-style" target="_blank">
+                        <li class="icon twitter">
+                            <span class="textoIcono">Twitter</span>
+                            <span class="fa-brands fa-twitter"></span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="mainLogo-titulo">
+                <div class="titulo-principal">
+                    <a href="../index.html" class="main-titulo">
+                        <h1>FakeHub</h1>
+                    </a>
+                    </p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="botones"><a href="inicio-sesion.html">Inicia sesión</a></div>
+                <div class="botones"><a href="registro.html">Regístrate</a></div>
+            </div>
+        </div>
+        <div class="principal">
+            <div class="formulario-registro">
+                <form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post" target="_blank">
+                    <h1>¡Crea una cuenta!</h1>
+                    <div class="registro">
+                        <div class="caja-texto">
+                            <label for="name">Nombre:</label>
+                            <input type="text" name="nombre" id="name" required>
+                        </div>
+                        <div class="caja-texto">
+                            <label for="lastname">Apellidos:</label>
+                            <input type="text" name="apellidos" id="lastname">
+                        </div>
+                        <div class="caja-texto">
+                            <label for="mail">Email:</label>
+                            <input type="email" name="correo" id="mail" required>
+                        </div>
+                        <div class="caja-texto">
+                            <label for="user">Usuario:</label>
+                            <input type="text" name="usuario" id="user" required>
+                        </div>
+                        <div class="caja-texto">
+                            <label for="pass">Contraseña:</label>
+                            <input type="password" name="contrasenya" id="pass" required minlength="5">
+                        </div>
+                        <div class="seleccion-gustos">
+                            <label for="pref">Preferencia personal:</label>
+                            <select name="preferencia" id="pref">
+                                <option value="tec">Tecnología</option>
+                                <option value="art">Arte</option>
+                                <option value="games">Videojuegos</option>
+                                <option value="vandalism">Vandalismo</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Enviar" class="btn">
+                        <div class="login-link">
+                            <p>¿Ya tienes una cuenta? <a href="inicio-sesion.html">¡Inicia sesión!</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-secundario">
+            <div class="logo-terminos">
+                <h2 class="logo">FakeLEGAL</h2>
+                <div class="terminos">
+                    <p>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Términos y condiciones</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

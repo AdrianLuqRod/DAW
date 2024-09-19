@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulación del DOM</title>
+    <style>
+      body {
+        background-color: gray;
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        text-shadow: 5px 5px 5px black;
+      }
+
+      .imagen {
+        width: fit-content;
+        margin: auto;
+        border: white 0px solid;
+        border-radius: 0px;
+        transition: border 1s, box-shadow 1s, border-radius 1s;
+      }
+
+      .borde {
+        border: white 20px solid;
+      }
+
+      .sombra {
+        box-shadow: 20px 20px 20px black;
+      }
+
+      .redondea {
+        border-radius: 120px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>La gran ola</h1>
+    <img
+      class="imagen"
+      src="https://ichef.bbci.co.uk/news/640/cpsprodpb/11D93/production/_121270137_gettyimages-584047706.jpg"
+    />
+
+    <script>
+      function poneBorde() {
+        let img = document.querySelector("img");
+        img.classList.add("borde");
+      }
+      function quitaBordePoneSombra() {
+        let img = document.querySelector("img");
+        img.classList.remove("borde");
+        img.classList.add("sombra");
+      }
+      function poneRedondea() {
+        let img = document.querySelector("img");
+        img.classList.add("redondea");
+      }
+      function quitaSombra() {
+        let img = document.querySelector("img");
+        img.classList.remove("sombra");
+      }
+      function quitaRedondea() {
+        let img = document.querySelector("img");
+        img.classList.remove("redondea");
+      }
+
+      function animation() {
+        setTimeout(poneBorde, 1000);
+        setTimeout(quitaBordePoneSombra, 3000);
+        setTimeout(poneRedondea, 5000);
+        setTimeout(quitaSombra, 7000);
+        setTimeout(quitaRedondea, 9000);
+      }
+      animation();
+      setInterval(animation, 10000);
+    </script>
+  </body>
+</html>

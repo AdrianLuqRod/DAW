@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        color: red;
+      }
+
+      .invisible {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tareas pendientes</h1>
+    <button onclick="nuevaTarea()">Nueva tarea</button>
+    <div>
+      <p class="invisible">¡Vaya! Se te olvidó escribir algo</p>
+    </div>
+    <div>
+      <ul id="lista"></ul>
+    </div>
+    <script>
+      function nuevaTarea() {
+        let tarea = prompt("Dime la nueva tarea pendiente: ");
+
+        if (tarea == null || tarea === "") {
+          mostrarAdvertencia();
+        } else {
+          let li = document.createElement("li");
+          li.innerText = tarea;
+          document.querySelector("#lista").append(li);
+        }
+      }
+
+      function mostrarAdvertencia() {
+        let warning = document.querySelector("p");
+        warning.classList.remove("invisible");
+        setTimeout(ocultarAdvertencia, 3000);
+      }
+
+      function ocultarAdvertencia() {
+        let warning = document.querySelector("p");
+        warning.classList.add("invisible");
+      }
+    </script>
+  </body>
+</html>
