@@ -7,6 +7,6 @@ TODO: Pedir 10 números. Mostrar la media de los números positivos, la media de
 
 public class ej13 {
     public static void main(String[] args) {
-
+        int contPos = 0, contNeg = 0, contCeros = 0;
     }
 }
