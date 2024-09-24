@@ -29,5 +29,8 @@ public class ej03 {
         mediaCeros /= ceros;
         mediaPositivos /= positivos;
         mediaNegativos /= negativos;
+        System.out.println("Media de los números positivos: " + mediaPositivos);
+        System.out.println("Media de los números negativos: " + mediaNegativos);
+        System.out.println("Número de ceros: " + ceros);
     }
 }
