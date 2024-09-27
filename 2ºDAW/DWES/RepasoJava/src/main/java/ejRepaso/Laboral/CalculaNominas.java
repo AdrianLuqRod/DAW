@@ -44,17 +44,17 @@ public class CalculaNominas {
                     mostrarSalarioEmpleado(sc.next());
                     break;
                 case 3:
-                    // TODO:Modificar datos de los empleados
                     subMenu();
                     break;
                 case 4:
-                    // TODO:Actualizar sueldo de un empleado
+                    System.out.println("Introduce el DNI del empleado:");
+                    actualizarSueldoEmpleado(sc.next());
                     break;
                 case 5:
-                    // TODO:Actualizar sueldo de todos los empleados
+                    actualizarSueldoEmpleados();
                     break;
                 case 6:
-                    // TODO:Realizar copia de seguridad en ficheros
+                    copiaSeguridadFicheros();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
@@ -193,18 +193,20 @@ public class CalculaNominas {
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    // TODO:Modificar nombre
                     System.out.println("Introduce el DNI del empleado y su nuevo nombre:");
                     modificarNombreEmpleado(sc.next(), sc.next());
                     break;
                 case 2:
-                    // TODO:Modificar categoría
+                    System.out.println("Introduce el DNI del empleado y su nueva categoría:");
+                    modificarCategoria(sc.next(), sc.nextInt());
                     break;
                 case 3:
-                    // TODO:Modificar años trabajados
+                    System.out.println("Introduce el DNI del empleado y sus nuevos años trabajados:");
+                    modificarAnyosTrabajados(sc.next(), sc.nextInt());
                     break;
                 case 4:
-                    // TODO:Modificar sexo
+                    System.out.println("Introduce el DNI del empleado y su nuevo sexo:");
+                    modificarSexo(sc.next(), sc.next().charAt(0));
                     break;
                 case 0:
                     System.out.println("Saliendo al menú...");
@@ -217,7 +219,7 @@ public class CalculaNominas {
         try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
                 "123456");
              Statement st = cn.createStatement();
-            ) {
+        ) {
             String sql = "UPDATE empleado SET NOMBRE = '" + nombre + "' WHERE DNI = '" + dni + "'";
             st.executeUpdate(sql);
             System.out.println("Nombre modificado correctamente.");
@@ -225,5 +227,148 @@ public class CalculaNominas {
             System.out.println(e.getMessage());
         }
     }
-}
 
+    private static void modificarCategoria(String dni, int categoria) {
+        Nomina n = new Nomina();
+        Empleado e = null;
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                "123456");
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+        ) {
+            if (rs.next()) {
+                char sexo = rs.getString("Sexo").charAt(0);
+                String nombre = rs.getString("Nombre");
+                int anyos = rs.getInt("Anyos");
+                int categoriaAnterior = rs.getInt("Categoria");
+                e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+            }
+            if (e != null) {
+                String sqlCategoria = "UPDATE empleado SET CATEGORIA = '" + categoria + "' WHERE DNI = '" + dni + "'";
+                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                st.executeUpdate(sqlCategoria);
+                System.out.println("Categoría modificada correctamente.");
+                st.executeUpdate(sqlSueldo);
+                System.out.println("Sueldo actualizado correctamente.");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void modificarAnyosTrabajados(String dni, int anyos) {
+        Nomina n = new Nomina();
+        Empleado e = null;
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                "123456");
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+        ) {
+            if (rs.next()) {
+                char sexo = rs.getString("Sexo").charAt(0);
+                String nombre = rs.getString("Nombre");
+                int anyosAnterior = rs.getInt("Anyos");
+                int categoria = rs.getInt("Categoria");
+                e = new Empleado(sexo, dni, nombre, categoria, anyosAnterior);
+            }
+            if (e != null) {
+                String sqlAnyos = "UPDATE empleado SET Anyos = '" + anyos + "' WHERE DNI = '" + dni + "'";
+                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                st.executeUpdate(sqlAnyos);
+                System.out.println("Anyos modificados correctamente.");
+                st.executeUpdate(sqlSueldo);
+                System.out.println("Sueldo actualizado correctamente.");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void modificarSexo(String dni, char sexo) {
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                "123456");
+             Statement st = cn.createStatement();
+        ) {
+            String sql = "UPDATE empleado SET SEXO = '" + sexo + "' WHERE DNI = '" + dni + "'";
+            st.executeUpdate(sql);
+            System.out.println("Sexo modificado correctamente.");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void actualizarSueldoEmpleado(String dni) {
+        Nomina n = new Nomina();
+        Empleado e = null;
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                "123456");
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+        ) {
+            if (rs.next()) {
+                char sexo = rs.getString("Sexo").charAt(0);
+                String nombre = rs.getString("Nombre");
+                int anyos = rs.getInt("Anyos");
+                int categoriaAnterior = rs.getInt("Categoria");
+                e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+            }
+            if (e != null) {
+                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                st.executeUpdate(sqlSueldo);
+                System.out.println("Sueldo actualizado correctamente.");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void actualizarSueldoEmpleados() {
+        Nomina n = new Nomina();
+        List<Empleado> empleados = new ArrayList<>();
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root", "123456");
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado")
+        ) {
+            while (rs.next()) {
+                char sexo = rs.getString("Sexo").charAt(0);
+                String dni = rs.getString("DNI");
+                String nombre = rs.getString("Nombre");
+                int anyos = rs.getInt("Anyos");
+                int categoria = rs.getInt("Categoria");
+                Empleado e = new Empleado(sexo, dni, nombre, categoria, anyos);
+                empleados.add(e);
+            }
+            System.out.println("Empleados leídos y actualizando.");
+            for (Empleado e : empleados) {
+                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + e.dni + "'";
+                st.executeUpdate(sqlSueldo);
+            }
+            System.out.println("Sueldos de empleados actualizados correctamente.");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void copiaSeguridadFicheros() {
+        List<Empleado> empleados = new ArrayList<>();
+        Nomina n = new Nomina();
+        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root", "123456");
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado")) {
+            while (rs.next()) {
+                char sexo = rs.getString("Sexo").charAt(0);
+                String dni = rs.getString("DNI");
+                String nombre = rs.getString("Nombre");
+                int anyos = rs.getInt("Anyos");
+                int categoria = rs.getInt("Categoria");
+                Empleado e = new Empleado(sexo, dni, nombre, categoria, anyos);
+                empleados.add(e);
+            }
+            escribirEmpleado("back_up_empleados.txt", empleados);
+            escribirNomina("back_up_sueldos.dat", empleados);
+            System.out.println("Copia de seguridad realizada correctamente.");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
