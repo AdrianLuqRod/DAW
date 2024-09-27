@@ -7,11 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/*
-M,32000032G,James Cosling,5,7
-F,23200032R,Ada Lovelace,1,1
- */
-
 public class CalculaNominas {
     private static final String RUTA = System.getProperty("user.dir") + "/src/main/java/ejRepaso/Laboral/";
 
@@ -68,7 +63,7 @@ public class CalculaNominas {
 
 
     }
-
+    
     private static List<Empleado> leerEmpleados(String nombreArchivo) {
         List<Empleado> empleados = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(RUTA + "back_up_empleados.txt"))) {
