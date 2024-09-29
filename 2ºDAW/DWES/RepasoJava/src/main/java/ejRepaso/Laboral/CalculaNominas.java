@@ -1,5 +1,7 @@
 package ejRepaso.Laboral;
 
+// TODO: VERIFICAR EXISTENCIA DNIS EN TODOS LOS MÉTODOS QUE LO REQUIERAN.
+
 import java.sql.*;
 import java.io.*;
 import java.sql.DriverManager;
@@ -17,7 +19,7 @@ public class CalculaNominas {
 
     private static void Menu() {
         Scanner sc = new Scanner(System.in);
-        int opcion = 0;
+        int opcion;
         do {
             System.out.println("--- MENÚ ---");
             System.out.println("1. Mostrar información de todos los empleados.");
@@ -63,7 +65,7 @@ public class CalculaNominas {
 
 
     }
-    
+
     private static List<Empleado> leerEmpleados(String nombreArchivo) {
         List<Empleado> empleados = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(RUTA + "back_up_empleados.txt"))) {
@@ -160,17 +162,26 @@ public class CalculaNominas {
     }
 
     private static void mostrarSalarioEmpleado(String dni) {
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-             ResultSet rs = st.executeQuery("SELECT sueldo FROM empleados.nomina WHERE nomina.Empleado_DNI = '"
-                     + dni + "'")) {
-            while (rs.next()) {
-                System.out.println("Sueldo: " + rs.getInt("SUELDO") + "€");
-            }
+        boolean dniExiste = false;
+        Scanner sc = new Scanner(System.in);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT sueldo FROM empleados.nomina WHERE nomina.Empleado_DNI = '"
+                         + dni + "'")) {
+                if (rs.next()) {
+                    System.out.println("Sueldo: " + rs.getInt("SUELDO") + "€");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -211,109 +222,157 @@ public class CalculaNominas {
     }
 
     private static void modificarNombreEmpleado(String dni, String nombre) {
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-        ) {
-            String sql = "UPDATE empleado SET NOMBRE = '" + nombre + "' WHERE DNI = '" + dni + "'";
-            st.executeUpdate(sql);
-            System.out.println("Nombre modificado correctamente.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        boolean dniExiste = false;
+        Scanner sc = new Scanner(System.in);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+            ) {
+                if (rs.next()) {
+                    String sql = "UPDATE empleado SET NOMBRE = '" + nombre + "' WHERE DNI = '" + dni + "'";
+                    st.executeUpdate(sql);
+                    System.out.println("Nombre modificado correctamente.");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 
     private static void modificarCategoria(String dni, int categoria) {
+        boolean dniExiste = false;
         Nomina n = new Nomina();
         Empleado e = null;
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
-        ) {
-            if (rs.next()) {
-                char sexo = rs.getString("Sexo").charAt(0);
-                String nombre = rs.getString("Nombre");
-                int anyos = rs.getInt("Anyos");
-                int categoriaAnterior = rs.getInt("Categoria");
-                e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+        Scanner sc = new Scanner(System.in);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+            ) {
+
+                if (rs.next()) {
+                    char sexo = rs.getString("Sexo").charAt(0);
+                    String nombre = rs.getString("Nombre");
+                    int anyos = rs.getInt("Anyos");
+                    int categoriaAnterior = rs.getInt("Categoria");
+                    e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+                    String sqlCategoria = "UPDATE empleado SET CATEGORIA = '" + categoria + "' WHERE DNI = '" + dni + "'";
+                    String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                    st.executeUpdate(sqlCategoria);
+                    System.out.println("Categoría modificada correctamente.");
+                    st.executeUpdate(sqlSueldo);
+                    System.out.println("Sueldo actualizado correctamente.");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            if (e != null) {
-                String sqlCategoria = "UPDATE empleado SET CATEGORIA = '" + categoria + "' WHERE DNI = '" + dni + "'";
-                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
-                st.executeUpdate(sqlCategoria);
-                System.out.println("Categoría modificada correctamente.");
-                st.executeUpdate(sqlSueldo);
-                System.out.println("Sueldo actualizado correctamente.");
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
         }
     }
 
+
     private static void modificarAnyosTrabajados(String dni, int anyos) {
+        boolean dniExiste = false;
         Nomina n = new Nomina();
         Empleado e = null;
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
-        ) {
-            if (rs.next()) {
-                char sexo = rs.getString("Sexo").charAt(0);
-                String nombre = rs.getString("Nombre");
-                int anyosAnterior = rs.getInt("Anyos");
-                int categoria = rs.getInt("Categoria");
-                e = new Empleado(sexo, dni, nombre, categoria, anyosAnterior);
+        Scanner sc = new Scanner(System.in);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+            ) {
+                if (rs.next()) {
+                    char sexo = rs.getString("Sexo").charAt(0);
+                    String nombre = rs.getString("Nombre");
+                    int anyosAnterior = rs.getInt("Anyos");
+                    int categoria = rs.getInt("Categoria");
+                    e = new Empleado(sexo, dni, nombre, categoria, anyosAnterior);
+                    String sqlAnyos = "UPDATE empleado SET Anyos = '" + anyos + "' WHERE DNI = '" + dni + "'";
+                    String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                    st.executeUpdate(sqlAnyos);
+                    System.out.println("Anyos modificados correctamente.");
+                    st.executeUpdate(sqlSueldo);
+                    System.out.println("Sueldo actualizado correctamente.");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            if (e != null) {
-                String sqlAnyos = "UPDATE empleado SET Anyos = '" + anyos + "' WHERE DNI = '" + dni + "'";
-                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
-                st.executeUpdate(sqlAnyos);
-                System.out.println("Anyos modificados correctamente.");
-                st.executeUpdate(sqlSueldo);
-                System.out.println("Sueldo actualizado correctamente.");
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
         }
     }
 
     private static void modificarSexo(String dni, char sexo) {
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-        ) {
-            String sql = "UPDATE empleado SET SEXO = '" + sexo + "' WHERE DNI = '" + dni + "'";
-            st.executeUpdate(sql);
-            System.out.println("Sexo modificado correctamente.");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        boolean dniExiste = false;
+        Scanner sc = new Scanner(System.in);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+            ) {
+
+                if (rs.next()) {
+                    String sql = "UPDATE empleado SET SEXO = '" + sexo + "' WHERE DNI = '" + dni + "'";
+                    st.executeUpdate(sql);
+                    System.out.println("Sexo modificado correctamente.");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 
     private static void actualizarSueldoEmpleado(String dni) {
+        boolean dniExiste = false;
+        Scanner sc = new Scanner(System.in);
         Nomina n = new Nomina();
         Empleado e = null;
-        try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
-                "123456");
-             Statement st = cn.createStatement();
-             ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
-        ) {
-            if (rs.next()) {
-                char sexo = rs.getString("Sexo").charAt(0);
-                String nombre = rs.getString("Nombre");
-                int anyos = rs.getInt("Anyos");
-                int categoriaAnterior = rs.getInt("Categoria");
-                e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+        while (!dniExiste) {
+            try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
+                    "123456");
+                 Statement st = cn.createStatement();
+                 ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
+            ) {
+                if (rs.next()) {
+                    char sexo = rs.getString("Sexo").charAt(0);
+                    String nombre = rs.getString("Nombre");
+                    int anyos = rs.getInt("Anyos");
+                    int categoriaAnterior = rs.getInt("Categoria");
+                    e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+                    String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
+                    st.executeUpdate(sqlSueldo);
+                    System.out.println("Sueldo actualizado correctamente.");
+                    dniExiste = true;
+                } else {
+                    System.out.println("El DNI introducido no existe.");
+                    System.out.println("Introduce un DNI válido:");
+                    dni = sc.next();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            if (e != null) {
-                String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
-                st.executeUpdate(sqlSueldo);
-                System.out.println("Sueldo actualizado correctamente.");
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
         }
     }
 
