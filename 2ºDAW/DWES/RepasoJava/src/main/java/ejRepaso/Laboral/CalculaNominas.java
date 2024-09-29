@@ -1,7 +1,5 @@
 package ejRepaso.Laboral;
 
-// TODO: VERIFICAR EXISTENCIA DNIS EN TODOS LOS MÉTODOS QUE LO REQUIERAN.
-
 import java.sql.*;
 import java.io.*;
 import java.sql.DriverManager;
@@ -10,6 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CalculaNominas {
+    /**
+     * Ruta donde se encuentran los archivos de copia de seguridad.
+     */
     private static final String RUTA = System.getProperty("user.dir") + "/src/main/java/ejRepaso/Laboral/";
 
     public static void main(String[] args) {
@@ -17,6 +18,9 @@ public class CalculaNominas {
         Menu();
     }
 
+    /**
+     * Muestra un menu con las opciones disponibles.
+     */
     private static void Menu() {
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -66,6 +70,12 @@ public class CalculaNominas {
 
     }
 
+    /**
+     * Lee un archivo de empleados y devuelve una lista de esos empleados.
+     *
+     * @param nombreArchivo
+     * @return Lista de empleados.
+     */
     private static List<Empleado> leerEmpleados(String nombreArchivo) {
         List<Empleado> empleados = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(RUTA + "back_up_empleados.txt"))) {
@@ -85,6 +95,12 @@ public class CalculaNominas {
         return empleados;
     }
 
+    /**
+     * Escribe en un archivo la nómina de los empleados como respaldo a la base de datos.
+     *
+     * @param nombreArchivo
+     * @param empleados
+     */
     private static void escribirNomina(String nombreArchivo, List<Empleado> empleados) {
         Nomina n = new Nomina();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA + nombreArchivo))) {
@@ -98,6 +114,12 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Escribe en un archivo los empleados como respaldo a la base de datos.
+     *
+     * @param nombreArchivo
+     * @param empleados
+     */
     private static void escribirEmpleado(String nombreArchivo, List<Empleado> empleados) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA + nombreArchivo))) {
             for (Empleado e : empleados) {
@@ -110,6 +132,11 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Inserta un empleado en la base de datos.
+     *
+     * @param e
+     */
     private static void altaEmpleado(Empleado e) {
         List<Empleado> empleados = new ArrayList<>();
         Nomina n = new Nomina();
@@ -133,6 +160,11 @@ public class CalculaNominas {
         escribirNomina("back_up_sueldos.dat", empleados);
     }
 
+    /**
+     * Inserta una lista de empleados de un archivo en la base de datos.
+     *
+     * @param nombreArchivo
+     */
     private static void altaEmpleado(String nombreArchivo) {
         List<Empleado> empleados = leerEmpleados(nombreArchivo);
         for (Empleado e : empleados) {
@@ -141,6 +173,9 @@ public class CalculaNominas {
         System.out.println("Datos de la lista de empleados insertados correctamente");
     }
 
+    /**
+     * Muestra los empleados de la base de datos.
+     */
     private static void mostrarEmpleados() {
         try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
                 "123456");
@@ -161,6 +196,11 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Muestra el salario de un empleado identificado por su DNI.
+     *
+     * @param dni
+     */
     private static void mostrarSalarioEmpleado(String dni) {
         boolean dniExiste = false;
         Scanner sc = new Scanner(System.in);
@@ -185,6 +225,9 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Muestra un submenú con las opciones de modificar los datos de un empleado.
+     */
     private static void subMenu() {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
@@ -192,7 +235,7 @@ public class CalculaNominas {
             System.out.println("--- SUBMENÚ ---");
             System.out.println("1. Modificar nombre.");
             System.out.println("2. Modificar categoría.");
-            System.out.println("3. Modificar años trabajados.");
+            System.out.println("3. Modificar anyos trabajados.");
             System.out.println("4. Modificar sexo.");
             System.out.println("0. Salir al menú.");
             System.out.println("--------------------------------------------");
@@ -221,6 +264,12 @@ public class CalculaNominas {
         } while (opcion != 0);
     }
 
+    /**
+     * Modifica el nombre de un empleado.
+     *
+     * @param dni
+     * @param nombre
+     */
     private static void modificarNombreEmpleado(String dni, String nombre) {
         boolean dniExiste = false;
         Scanner sc = new Scanner(System.in);
@@ -246,6 +295,12 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Modifica la categoría de un empleado.
+     *
+     * @param dni
+     * @param categoria
+     */
     private static void modificarCategoria(String dni, int categoria) {
         boolean dniExiste = false;
         Nomina n = new Nomina();
@@ -282,7 +337,12 @@ public class CalculaNominas {
         }
     }
 
-
+    /**
+     * Modifica los anyos trabajados de un empleado.
+     *
+     * @param dni
+     * @param anyos
+     */
     private static void modificarAnyosTrabajados(String dni, int anyos) {
         boolean dniExiste = false;
         Nomina n = new Nomina();
@@ -318,6 +378,12 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Modifica el sexo de un empleado indentificado por su DNI.
+     *
+     * @param dni
+     * @param sexo
+     */
     private static void modificarSexo(String dni, char sexo) {
         boolean dniExiste = false;
         Scanner sc = new Scanner(System.in);
@@ -344,6 +410,11 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Actualiza el sueldo de un empleado indentificado por su DNI.
+     *
+     * @param dni
+     */
     private static void actualizarSueldoEmpleado(String dni) {
         boolean dniExiste = false;
         Scanner sc = new Scanner(System.in);
@@ -376,6 +447,9 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Actualiza el sueldo de todos los empleados.
+     */
     private static void actualizarSueldoEmpleados() {
         Nomina n = new Nomina();
         List<Empleado> empleados = new ArrayList<>();
@@ -403,6 +477,9 @@ public class CalculaNominas {
         }
     }
 
+    /**
+     * Realiza una copia de seguridad de los empleados y sus nóminas en ficheros.
+     */
     private static void copiaSeguridadFicheros() {
         List<Empleado> empleados = new ArrayList<>();
         Nomina n = new Nomina();
