@@ -1,8 +1,15 @@
 package ejRepaso.Laboral;
 
-import java.sql.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -78,7 +85,7 @@ public class CalculaNominas {
      */
     private static List<Empleado> leerEmpleados(String nombreArchivo) {
         List<Empleado> empleados = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(RUTA + "back_up_empleados.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(RUTA + nombreArchivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
@@ -230,7 +237,7 @@ public class CalculaNominas {
      */
     private static void subMenu() {
         Scanner sc = new Scanner(System.in);
-        int opcion = 0;
+        int opcion;
         do {
             System.out.println("--- SUBMENÚ ---");
             System.out.println("1. Modificar nombre.");
@@ -304,7 +311,6 @@ public class CalculaNominas {
     private static void modificarCategoria(String dni, int categoria) {
         boolean dniExiste = false;
         Nomina n = new Nomina();
-        Empleado e = null;
         Scanner sc = new Scanner(System.in);
         while (!dniExiste) {
             try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
@@ -314,11 +320,7 @@ public class CalculaNominas {
             ) {
 
                 if (rs.next()) {
-                    char sexo = rs.getString("Sexo").charAt(0);
-                    String nombre = rs.getString("Nombre");
-                    int anyos = rs.getInt("Anyos");
-                    int categoriaAnterior = rs.getInt("Categoria");
-                    e = new Empleado(sexo, dni, nombre, categoriaAnterior, anyos);
+                    Empleado e = creaEmpleado(dni, rs);
                     String sqlCategoria = "UPDATE empleado SET CATEGORIA = '" + categoria + "' WHERE DNI = '" + dni + "'";
                     String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
                     st.executeUpdate(sqlCategoria);
@@ -346,7 +348,7 @@ public class CalculaNominas {
     private static void modificarAnyosTrabajados(String dni, int anyos) {
         boolean dniExiste = false;
         Nomina n = new Nomina();
-        Empleado e = null;
+
         Scanner sc = new Scanner(System.in);
         while (!dniExiste) {
             try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root",
@@ -355,11 +357,7 @@ public class CalculaNominas {
                  ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado WHERE DNI = '" + dni + "'")
             ) {
                 if (rs.next()) {
-                    char sexo = rs.getString("Sexo").charAt(0);
-                    String nombre = rs.getString("Nombre");
-                    int anyosAnterior = rs.getInt("Anyos");
-                    int categoria = rs.getInt("Categoria");
-                    e = new Empleado(sexo, dni, nombre, categoria, anyosAnterior);
+                    Empleado e = creaEmpleado(dni, rs);
                     String sqlAnyos = "UPDATE empleado SET Anyos = '" + anyos + "' WHERE DNI = '" + dni + "'";
                     String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + dni + "'";
                     st.executeUpdate(sqlAnyos);
@@ -376,6 +374,22 @@ public class CalculaNominas {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    /**
+     * Crea un empleado a partir de los datos obtenidos de la consulta.
+     *
+     * @param dni
+     * @param rs  Consulta realizada.
+     * @return Empleado
+     * @throws SQLException
+     */
+    private static Empleado creaEmpleado(String dni, ResultSet rs) throws SQLException {
+        char sexo = rs.getString("Sexo").charAt(0);
+        String nombre = rs.getString("Nombre");
+        int anyosAnterior = rs.getInt("Anyos");
+        int categoria = rs.getInt("Categoria");
+        return new Empleado(sexo, dni, nombre, categoria, anyosAnterior);
     }
 
     /**
@@ -457,15 +471,7 @@ public class CalculaNominas {
              Statement st = cn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado")
         ) {
-            while (rs.next()) {
-                char sexo = rs.getString("Sexo").charAt(0);
-                String dni = rs.getString("DNI");
-                String nombre = rs.getString("Nombre");
-                int anyos = rs.getInt("Anyos");
-                int categoria = rs.getInt("Categoria");
-                Empleado e = new Empleado(sexo, dni, nombre, categoria, anyos);
-                empleados.add(e);
-            }
+            rellenarLista(empleados, rs);
             System.out.println("Empleados leídos y actualizando.");
             for (Empleado e : empleados) {
                 String sqlSueldo = "UPDATE nomina SET SUELDO = '" + n.sueldo(e) + "' WHERE Empleado_DNI = '" + e.dni + "'";
@@ -482,24 +488,34 @@ public class CalculaNominas {
      */
     private static void copiaSeguridadFicheros() {
         List<Empleado> empleados = new ArrayList<>();
-        Nomina n = new Nomina();
         try (Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empleados", "root", "123456");
              Statement st = cn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM empleados.empleado")) {
-            while (rs.next()) {
-                char sexo = rs.getString("Sexo").charAt(0);
-                String dni = rs.getString("DNI");
-                String nombre = rs.getString("Nombre");
-                int anyos = rs.getInt("Anyos");
-                int categoria = rs.getInt("Categoria");
-                Empleado e = new Empleado(sexo, dni, nombre, categoria, anyos);
-                empleados.add(e);
-            }
+            rellenarLista(empleados, rs);
             escribirEmpleado("back_up_empleados.txt", empleados);
             escribirNomina("back_up_sueldos.dat", empleados);
             System.out.println("Copia de seguridad realizada correctamente.");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    /**
+     * Rellena una lista de empleados con los datos obtenidos de la consulta realizada.
+     *
+     * @param empleados Lista de empleados.
+     * @param rs        Consulta realizada.
+     * @throws SQLException
+     */
+    private static void rellenarLista(List<Empleado> empleados, ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            char sexo = rs.getString("Sexo").charAt(0);
+            String dni = rs.getString("DNI");
+            String nombre = rs.getString("Nombre");
+            int anyos = rs.getInt("Anyos");
+            int categoria = rs.getInt("Categoria");
+            Empleado e = new Empleado(sexo, dni, nombre, categoria, anyos);
+            empleados.add(e);
         }
     }
 }
