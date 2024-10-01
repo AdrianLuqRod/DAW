@@ -168,8 +168,7 @@ public class CalculaNominas {
     }
 
     /**
-     * Inserta una lista de empleados de un archivo en la base de datos.
-     *
+     * Inserta una lista de empleados en la base de datos.
      * @param nombreArchivo
      */
     private static void altaEmpleado(String nombreArchivo) {
