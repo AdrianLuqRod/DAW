@@ -21,7 +21,7 @@ public class CalculaNominas {
     private static final String RUTA = System.getProperty("user.dir") + "/src/main/java/ejRepaso/Laboral/";
 
     public static void main(String[] args) {
-        altaEmpleado(new Empleado('M', "32000032G", "James Cosling", 5, 7));
+        // altaEmpleado(new Empleado('M', "32000032G", "James Cosling", 5, 7));
         Menu();
     }
 
@@ -169,6 +169,7 @@ public class CalculaNominas {
 
     /**
      * Inserta una lista de empleados en la base de datos.
+     *
      * @param nombreArchivo
      */
     private static void altaEmpleado(String nombreArchivo) {
@@ -191,7 +192,7 @@ public class CalculaNominas {
                 System.out.println("DNI: " + rs.getString("DNI"));
                 System.out.println("Nombre: " + rs.getString("NOMBRE"));
                 System.out.println("Categoría: " + rs.getInt("CATEGORIA"));
-                System.out.println("Años: " + rs.getInt("ANYOS"));
+                System.out.println("Anyos trabajados: " + rs.getInt("ANYOS"));
                 System.out.println("Sexo: " + rs.getString("SEXO"));
                 System.out.println("-------------------------------");
             }

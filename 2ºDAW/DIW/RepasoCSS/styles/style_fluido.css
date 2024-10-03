@@ -1,19 +1,19 @@
 body {
   text-align: center;
-  width: 960px;
+  width: 80%;
   margin: 0 auto;
 }
 
 #izquierda {
   text-align: left;
   float: left;
-  width: 260px;
+  width: 25%;
 }
 
 #derecha {
   text-align: left;
   float: right;
-  width: 700px;
+  width: 75%;
 }
 
 img {
@@ -31,7 +31,7 @@ img {
 
 #bottom_derecha p {
   display: inline-block;
-  width: 20.3%;
-  margin: 1.071%;
+  width: 190px;
+  margin: 10px;
   vertical-align: top;
 }
