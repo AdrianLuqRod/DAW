@@ -20,14 +20,30 @@
         </tr>
         <tr>
             <td>Cantidad:</td>
-            <td><input type="text" name="cantidad" size="50" value="${producto.cantidad}"></td>
+            <td><input type="text" name="cantidad" size="50" value="${producto.cantidad}" pattern="\d+"
+                       title="Solo números enteros"></td>
         </tr>
         <tr>
             <td>Precio:</td>
-            <td><input type="text" name="precio" size="50" value="${producto.precio}"></td>
+            <td><input type="text" name="precio" size="50" value="${producto.precio}" pattern="\d+(\.\d{1,2})?"
+                       title="Solo números con 2 decimales máximo">
+            </td>
         </tr>
     </table>
     <input type="submit" value="Guardar">
+    <%
+        if(session.getAttribute("error") != null) {
+    %>
+    <p>
+        <%=session.getAttribute("error")%>
+    </p>
+    <%
+        }
+        session.removeAttribute("error");
+    %>
+    <p><a href="productos?opcion=listar">
+        Cancelar modificación
+    </a></p>
 </form>
 </body>
 </html>

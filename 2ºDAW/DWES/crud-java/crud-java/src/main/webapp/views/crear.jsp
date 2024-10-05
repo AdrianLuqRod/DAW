@@ -17,14 +17,30 @@
         </tr>
         <tr>
             <td>Cantidad:</td>
-            <td><input type="text" name="cantidad" size="50"></td>
+            <td><input type="text" name="cantidad" size="50" pattern="\d+" title="Solo números enteros"></td>
+
         </tr>
         <tr>
             <td>Precio:</td>
-            <td><input type="text" name="precio" size="50"></td>
+            <td><input type="text" name="precio" size="50" pattern="\d+(\.\d{1,2})?"
+                       title="Solo números con 2 decimales máximo"></td>
         </tr>
     </table>
     <input type="submit" value="Guardar">
+    <%
+        if(session.getAttribute("error") != null) {
+    %>
+    <p>
+        <%=session.getAttribute("error")%>
+    </p>
+    <%
+        }
+        session.removeAttribute("error");
+    %>
+
+    <p><a href="index.jsp">
+        Volver al inicio
+    </a></p>
 </form>
 </body>
 </html>

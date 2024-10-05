@@ -11,7 +11,6 @@
 <h1>Listar Productos</h1>
 <table border="1">
     <tr>
-        <td>Id</td>
         <td>Nombre</td>
         <td>Cantidad</td>
         <td>Precio</td>
@@ -21,11 +20,6 @@
     </tr>
     <c:forEach var="producto" items="${lista}">
         <tr>
-            <td>
-                <a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
-                    <c:out value="${ producto.id}"></c:out>
-                </a>
-            </td>
             <td><c:out value="${ producto.nombre}"></c:out></td>
             <td><c:out value="${ producto.cantidad}"></c:out></td>
             <td><c:out value="${ producto.precio}"></c:out></td>
@@ -36,8 +30,55 @@
                     Eliminar
                 </a>
             </td>
+            <td>
+                <a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
+                    Editar
+                </a>
+            </td>
         </tr>
     </c:forEach>
 </table>
+<h1>Crear Producto</h1>
+<form action="productos" method="post">
+    <input type="hidden" name="opcion" value="guardar">
+    <table border="1">
+        <tr>
+            <td>Nombre:</td>
+            <td><input type="text" name="nombre" size="50"></td>
+        </tr>
+        <tr>
+            <td>Cantidad:</td>
+            <td><input type="text" name="cantidad" size="50" pattern="\d+" title="Solo números enteros"></td>
+        </tr>
+        <tr>
+            <td>Precio:</td>
+            <td><input type="text" name="precio" size="50" pattern="\d+(\.\d{1,2})?"
+                       title="Solo números con 2 decimales máximo"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Guardar">
+    <%
+        if(session.getAttribute("error") != null) {
+    %>
+    <p>
+        <%=session.getAttribute("error")%>
+
+    </p>
+    <%
+        session.removeAttribute("error");
+    } else if(session.getAttribute("exito") != null) {
+    %>
+    <p>
+        <%=session.getAttribute("exito")%>
+    </p>
+    <%
+            session.removeAttribute("exito");
+        }
+    %>
+
+    <p><a href="index.jsp">
+        Volver al inicio
+    </a></p>
+</form>
 </body>
 </html>
