@@ -1,5 +1,4 @@
-//TODO: Escribir la fecha y hora de modificación de cada producto en un formato más natural, añadiendo el
-// día de la semana.
+//TODO: Intentar poner la hora en la fecha, DATE --> TIMESTAMP.
 // Hacer CSS
 package com.aprendec.controller;
 

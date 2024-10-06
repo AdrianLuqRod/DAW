@@ -105,7 +105,11 @@ public class ProductoDAO {
         connection = obtenerConexion();
 
         try {
-            sql = "SELECT *, DATE_FORMAT(fecha_actualizar, '%W %d de %M, %H:%i' , 'es_ES') AS fecha_formateada FROM productos;";
+            sql = "SELECT *, " +
+                    "CONCAT(UPPER(SUBSTRING(DATE_FORMAT(fecha_actualizar, '%W', 'es_ES'), 1, 1)), " +
+                    "LOWER(SUBSTRING(DATE_FORMAT(fecha_actualizar, '%W', 'es_ES'), 2)), ', ', " +
+                    "DATE_FORMAT(fecha_actualizar, '%e de %M de %Y', 'es_ES')) AS fecha_formateada " +
+                    "FROM productos;";
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery(sql);
             while(resultSet.next()) {
