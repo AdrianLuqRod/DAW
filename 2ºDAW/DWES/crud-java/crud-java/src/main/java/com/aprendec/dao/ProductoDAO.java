@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ProductoDAO {
             statement = connection.prepareStatement(sql);
             statement.setString(1, null);
             statement.setString(2, producto.getNombre());
-            statement.setDouble(3, producto.getCantidad());
+            statement.setInt(3, producto.getCantidad());
             statement.setDouble(4, producto.getPrecio());
             statement.setDate(5, producto.getFechaCrear());
             statement.setDate(6, producto.getFechaActualizar());
@@ -51,9 +52,8 @@ public class ProductoDAO {
             connection.setAutoCommit(false);
             sql = "UPDATE productos SET nombre=?, cantidad=?, precio=?, fecha_actualizar=? WHERE id=?";
             statement = connection.prepareStatement(sql);
-
             statement.setString(1, producto.getNombre());
-            statement.setDouble(2, producto.getCantidad());
+            statement.setInt(2, producto.getCantidad());
             statement.setDouble(3, producto.getPrecio());
             statement.setDate(4, producto.getFechaActualizar());
             statement.setInt(5, producto.getId());
@@ -105,17 +105,18 @@ public class ProductoDAO {
         connection = obtenerConexion();
 
         try {
-            sql = "SELECT * FROM productos";
+            sql = "SELECT *, DATE_FORMAT(fecha_actualizar, '%W %d de %M, %H:%i' , 'es_ES') AS fecha_formateada FROM productos;";
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery(sql);
             while(resultSet.next()) {
                 Producto p = new Producto();
                 p.setId(resultSet.getInt(1));
                 p.setNombre(resultSet.getString(2));
-                p.setCantidad(resultSet.getDouble(3));
+                p.setCantidad(resultSet.getInt(3));
                 p.setPrecio(resultSet.getDouble(4));
                 p.setFechaCrear(resultSet.getDate(5));
                 p.setFechaActualizar(resultSet.getDate(6));
+                p.setFechaFormateada(resultSet.getString("fecha_formateada"));
                 listaProductos.add(p);
             }
 
@@ -145,7 +146,7 @@ public class ProductoDAO {
             if(resultSet.next()) {
                 p.setId(resultSet.getInt(1));
                 p.setNombre(resultSet.getString(2));
-                p.setCantidad(resultSet.getDouble(3));
+                p.setCantidad(resultSet.getInt(3));
                 p.setPrecio(resultSet.getDouble(4));
                 p.setFechaCrear(resultSet.getDate(5));
                 p.setFechaActualizar(resultSet.getDate(6));
@@ -167,7 +168,7 @@ public class ProductoDAO {
      * Verifica si un producto existe en la base de datos.
      *
      * @param nombreProd
-     * @return
+     * @return boolean
      * @throws SQLException
      */
     public boolean existeProducto(String nombreProd) throws SQLException {

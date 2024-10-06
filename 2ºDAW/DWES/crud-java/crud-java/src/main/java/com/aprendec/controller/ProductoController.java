@@ -1,6 +1,6 @@
 //TODO: Escribir la fecha y hora de modificación de cada producto en un formato más natural, añadiendo el
 // día de la semana.
-// Arreglar creación de productos duplicados.
+// Hacer CSS
 package com.aprendec.controller;
 
 import java.io.IOException;
@@ -119,19 +119,21 @@ public class ProductoController extends HttpServlet {
             if(session.getAttribute("error") != null) {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/crear.jsp");
                 requestDispatcher.forward(request, response);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/productos?opcion=listar");
             }
-            response.sendRedirect(request.getContextPath() + "/productos?opcion=listar");
 
             // Con el response.sendRedirect no se pueden mostrar las sesiones, se reinician.
             // Intentar
 
         } else if(opcion.equals("editar")) {
-            modificaProducto(request, session, fechaActual);
+            modificaProducto(request, response, session, fechaActual);
             if(session.getAttribute("error") != null) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/editar.jsp");
-                requestDispatcher.forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/productos?opcion=meditar&id=" +
+                        request.getParameter("id"));
+            } else {
+                response.sendRedirect(request.getContextPath() + "/productos?opcion=listar");
             }
-            response.sendRedirect(request.getContextPath() + "/productos?opcion=listar");
         }
         // doGet(request, response);
     }
@@ -145,7 +147,7 @@ public class ProductoController extends HttpServlet {
                 session.setAttribute("error", "Los campos no deben estar vacios");
             } else {
                 producto.setNombre(request.getParameter("nombre"));
-                producto.setCantidad(Double.parseDouble(request.getParameter("cantidad")));
+                producto.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
                 producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
                 producto.setFechaCrear(new java.sql.Date(fechaActual.getTime()));
                 if(productoDAO.existeProducto(producto.getNombre())) {
@@ -161,24 +163,24 @@ public class ProductoController extends HttpServlet {
         }
     }
 
-    private void modificaProducto(HttpServletRequest request, HttpSession session, Date fechaActual) {
+    private void modificaProducto(HttpServletRequest request, HttpServletResponse response, HttpSession session, Date fechaActual) {
         try {
             ProductoDAO productoDAO = new ProductoDAO();
             Producto producto = new Producto();
+            Producto productoOld = productoDAO.obtenerProducto(Integer.parseInt(request.getParameter("id")));
+
             if(request.getParameter("nombre").isEmpty() || request.getParameter("cantidad").isEmpty() ||
                     request.getParameter("precio").isEmpty()) {
                 session.setAttribute("error", "Los campos no deben estar vacios");
+            } else if(productoDAO.existeProducto(request.getParameter("nombre")) && !(productoOld.getNombre().equals(request.getParameter("nombre")))) {
+                session.setAttribute("error", "El producto ya existe");
             } else {
                 producto.setId(Integer.parseInt(request.getParameter("id")));
                 producto.setNombre(request.getParameter("nombre"));
-                producto.setCantidad(Double.parseDouble(request.getParameter("cantidad")));
+                producto.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
                 producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
-                producto.setFechaCrear(new java.sql.Date(fechaActual.getTime()));
-                productoDAO.editar(producto); // !<- SE PUEDEN CREAR OBJETOS DUPLICADOS.
-                //! INTENTAR ARREGLAR
-                //! INTENTAR ARREGLAR
-                //! INTENTAR ARREGLAR
-                //! INTENTAR ARREGLAR
+                producto.setFechaActualizar(new java.sql.Date(fechaActual.getTime()));
+                productoDAO.editar(producto);
                 System.out.println("Registro modificado satisfactoriamente...");
                 session.setAttribute("exito", "Producto modificado satisfactoriamente...");
             }
@@ -186,5 +188,4 @@ public class ProductoController extends HttpServlet {
             ex.printStackTrace();
         }
     }
-
 }
