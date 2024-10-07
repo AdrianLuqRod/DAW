@@ -11,6 +11,7 @@
 <h1>Listar Productos</h1>
 <table border="1">
     <tr>
+        <td>Accion2</td>
         <td>Nombre</td>
         <td>Cantidad</td>
         <td>Precio</td>
@@ -20,20 +21,23 @@
     </tr>
     <c:forEach var="producto" items="${lista}">
         <tr>
+            <td>
+               <button> <a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
+                    Editar
+                </a>
+               </button>
+            </td>
             <td><c:out value="${ producto.nombre}"></c:out></td>
             <td><c:out value="${ producto.cantidad}"></c:out></td>
             <td><c:out value="${ producto.precio}"></c:out></td>
             <td><c:out value="${ producto.fechaCrear}"></c:out></td>
             <td><c:out value="${ producto.fechaFormateada}"></c:out></td>
             <td>
+                <button>
                 <a href="productos?opcion=eliminar&id=<c:out value="${ producto.id}"></c:out>">
                     Eliminar
                 </a>
-            </td>
-            <td>
-                <a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
-                    Editar
-                </a>
+                </button>
             </td>
         </tr>
     </c:forEach>
