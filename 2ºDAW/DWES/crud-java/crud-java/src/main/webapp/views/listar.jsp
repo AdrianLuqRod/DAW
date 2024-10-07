@@ -22,10 +22,10 @@
     <c:forEach var="producto" items="${lista}">
         <tr>
             <td>
-               <button> <a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
+                <button><a href="productos?opcion=meditar&id=<c:out value="${ producto.id}"></c:out>">
                     Editar
                 </a>
-               </button>
+                </button>
             </td>
             <td><c:out value="${ producto.nombre}"></c:out></td>
             <td><c:out value="${ producto.cantidad}"></c:out></td>
@@ -34,9 +34,9 @@
             <td><c:out value="${ producto.fechaFormateada}"></c:out></td>
             <td>
                 <button>
-                <a href="productos?opcion=eliminar&id=<c:out value="${ producto.id}"></c:out>">
-                    Eliminar
-                </a>
+                    <a href="productos?opcion=eliminar&id=<c:out value="${ producto.id}"></c:out>">
+                        Eliminar
+                    </a>
                 </button>
             </td>
         </tr>
@@ -52,12 +52,12 @@
         </tr>
         <tr>
             <td>Cantidad:</td>
-            <td><input type="text" name="cantidad" size="50" pattern="\d+" title="Solo números enteros"></td>
+            <td><input type="text" name="cantidad" size="50" pattern="\d+" title="Solo numeros enteros"></td>
         </tr>
         <tr>
             <td>Precio:</td>
             <td><input type="text" name="precio" size="50" pattern="\d+(\.\d{1,2})?"
-                       title="Solo números con 2 decimales máximo"></td>
+                       title="Solo numeros con 2 decimales maximo"></td>
         </tr>
     </table>
     <input type="submit" value="Guardar">
