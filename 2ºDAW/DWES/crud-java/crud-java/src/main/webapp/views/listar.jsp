@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Listar Productos</title>
+    <link rel="stylesheet" href="css/styleListar.css">
 </head>
 <body>
 <h1>Listar Productos</h1>
@@ -43,9 +44,9 @@
     </c:forEach>
 </table>
 <h1>Crear Producto</h1>
-<form action="productos" method="post">
+<form action="productos" method="post" class="tablaCrear">
     <input type="hidden" name="opcion" value="guardar">
-    <table border="1">
+    <table border="0">
         <tr>
             <td>Nombre:</td>
             <td><input type="text" name="nombre" size="50"></td>
@@ -60,7 +61,7 @@
                        title="Solo numeros con 2 decimales maximo"></td>
         </tr>
     </table>
-    <input type="submit" value="Guardar">
+    <span><input type="submit" value="Guardar"></span>
     <%
         if(session.getAttribute("error") != null) {
     %>
