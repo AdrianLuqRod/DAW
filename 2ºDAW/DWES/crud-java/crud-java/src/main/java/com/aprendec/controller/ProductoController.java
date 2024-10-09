@@ -121,10 +121,6 @@ public class ProductoController extends HttpServlet {
             } else {
                 response.sendRedirect(request.getContextPath() + "/productos?opcion=listar");
             }
-
-            // Con el response.sendRedirect no se pueden mostrar las sesiones, se reinician.
-            // Intentar
-
         } else if(opcion.equals("editar")) {
             modificaProducto(request, response, session, fechaActual);
             if(session.getAttribute("error") != null) {
@@ -137,6 +133,12 @@ public class ProductoController extends HttpServlet {
         // doGet(request, response);
     }
 
+    /**
+     * Crea un producto en la base de datos con los datos del formulario de crear.jsp
+     * @param request
+     * @param session
+     * @param fechaActual
+     */
     private void creaProducto(HttpServletRequest request, HttpSession session, Date fechaActual) {
         try {
             ProductoDAO productoDAO = new ProductoDAO();
@@ -162,6 +164,13 @@ public class ProductoController extends HttpServlet {
         }
     }
 
+    /**
+     * Modifica un producto en la base de datos con los datos del formulario de editar.jsp
+     * @param request
+     * @param response
+     * @param session
+     * @param fechaActual
+     */
     private void modificaProducto(HttpServletRequest request, HttpServletResponse response, HttpSession session, Date fechaActual) {
         try {
             ProductoDAO productoDAO = new ProductoDAO();
