@@ -26,8 +26,6 @@ a {
 }
 
 .botones {
-    /* margin: 20px; */
-    /* border: 3px solid black; */
     position: relative;
     display: flex;
     align-items: center;
@@ -48,8 +46,8 @@ a {
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
     outline: none;
 }
 
@@ -58,7 +56,6 @@ a {
     display: flex;
     justify-content: left;
     align-items: center;
-    /* border: 3px solid white; */
     position: absolute;
     width: 50%;
     height: 80%;
@@ -71,12 +68,11 @@ a {
     display: flex;
     justify-content: right;
     align-items: center;
-    /* border: 3px solid white; */
     position: absolute;
     width: 50%;
     height: 80%;
     top: -1%;
-    margin-left: 30rem; /* Añadir margen a la izquierda */
+    margin-left: 30rem;
 }
 
 .button1 {
@@ -108,10 +104,10 @@ a {
     right: 0;
     bottom: 0;
     background: rgba(41, 50, 66, 1);
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
-    -2px -2px 6px 0px rgba(255, 255, 255, .6),
-    7px 7px 20px 0px rgba(0, 0, 0, .2),
-    4px 4px 5px 0px rgba(0, 0, 0, .3);
+    box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, .9),
+    -2px -2px 6px 0 rgba(255, 255, 255, .6),
+    7px 7px 20px 0 rgba(0, 0, 0, .2),
+    4px 4px 5px 0 rgba(0, 0, 0, .3);
     transition: all 0.3s ease;
 }
 
@@ -127,7 +123,6 @@ a {
 
 .button1:hover {
     color: rgba(251, 75, 2, 1);
-    /* background: transparent; */
     background: linear-gradient(0deg, rgba(233, 225, 183, 1) 0%, rgba(41, 50, 66, 0.8) 100%);
 
 }
@@ -147,10 +142,10 @@ a {
     left: 0;
     top: 0;
     background: rgba(41, 50, 66, 1);
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
-    -2px -2px 6px 0px rgba(255, 255, 255, .6),
-    7px 7px 20px 0px rgba(0, 0, 0, .2),
-    4px 4px 5px 0px rgba(0, 0, 0, .3);
+    box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, .9),
+    -2px -2px 6px 0 rgba(255, 255, 255, .6),
+    7px 7px 20px 0 rgba(0, 0, 0, .2),
+    4px 4px 5px 0 rgba(0, 0, 0, .3);
     transition: all 0.3s ease;
 }
 
@@ -161,7 +156,7 @@ a {
 
 .button1 a:after {
     height: 2px;
-    width: 0%;
+    width: 0;
 }
 
 .button1 a:hover:before {
@@ -203,20 +198,20 @@ a {
     right: 0;
     bottom: 0;
     background: rgba(41, 50, 66, 1);
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
-    -2px -2px 6px 0px rgba(255, 255, 255, .6),
-    7px 7px 20px 0px rgba(0, 0, 0, .2),
-    4px 4px 5px 0px rgba(0, 0, 0, .3);
+    box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, .9),
+    -2px -2px 6px 0 rgba(255, 255, 255, .6),
+    7px 7px 20px 0 rgba(0, 0, 0, .2),
+    4px 4px 5px 0 rgba(0, 0, 0, .3);
     transition: all 0.3s ease;
 }
 
 .button2:before {
-    height: 0%;
+    height: 0;
     width: 2px;
 }
 
 .button2:after {
-    width: 0%;
+    width: 0;
     height: 2px;
 }
 
@@ -240,21 +235,21 @@ a {
     left: 0;
     top: 0;
     background: rgba(41, 50, 66, 1);
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
-    -2px -2px 6px 0px rgba(255, 255, 255, .6),
-    7px 7px 20px 0px rgba(0, 0, 0, .2),
-    4px 4px 5px 0px rgba(0, 0, 0, .3);
+    box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, .9),
+    -2px -2px 6px 0 rgba(255, 255, 255, .6),
+    7px 7px 20px 0 rgba(0, 0, 0, .2),
+    4px 4px 5px 0 rgba(0, 0, 0, .3);
     transition: all 0.3s ease;
 }
 
 .button2 a:before {
     width: 2px;
-    height: 0%;
+    height: 0;
 }
 
 .button2 a:after {
     height: 2px;
-    width: 0%;
+    width: 0;
 }
 
 .button2 a:hover:before {
