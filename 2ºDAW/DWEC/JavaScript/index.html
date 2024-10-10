@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola mundo con JS - DWEC</title>
-    <script src="01-HolaMundo.js"></script>
+    <script>
+        let min = prompt("Introduce un número mínimo");
+        let max = prompt("Introduce un número máximo");
+        for (let index = Number(min); index <= Number(max); index++) {
+            alert(index * 8);
+        }
+    </script>
 </head>
 
 <body>
