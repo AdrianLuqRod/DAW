@@ -1,32 +1,24 @@
-// let max = prompt("Ingrese el número máximo para buscar primos");
-// for (let index = 2; index < Number(max); index++) {
-//   let esPrimo = true;
-//   for (let index2 = 2; index2 < index; index2++) {
-//     if (index % index2 == 0) {
-//       esPrimo = false;
-//       break;
-//     }
-//   }
-//   if (esPrimo) {
-//     console.log(index);
-//   }
-// }
+for (let index = 100; index < 1000; index++) {
+  let centenas = parseInt(index / 100);
+  let decenas = parseInt((index % 100) / 10);
+  let unidades = parseInt(index % 10);
+  centenas = centenas ** 3;
+  decenas = decenas ** 3;
+  unidades = unidades ** 3;
+  let numero = Number(centenas) + Number(decenas) + Number(unidades);
+  if (Number(numero) === index) {
+    console.log(index);
+  }
+}
 
-let a = +prompt("a", "");
-
-switch (a) {
-  case 0:
-    alert(0);
-    break;
-
-  case 1:
-    alert(1);
-    break;
-  case 2:
-  case 3:
-    alert("2,3");
-    break;
-
-  default:
-    break;
+for (let index = 100; index < 1000; index++) {
+  let centenas = Math.floor(index / 100);
+  let decenas = Math.floor((index % 100) / 10);
+  let unidades = index % 10;
+  if (
+    index ===
+    Math.pow(centenas, 3) + Math.pow(decenas, 3) + Math.pow(unidades, 3)
+  ) {
+    console.log(index);
+  }
 }
