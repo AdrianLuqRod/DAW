@@ -1,5 +1,3 @@
-//TODO: Intentar poner la hora en la fecha, DATE --> TIMESTAMP.
-// Hacer CSS
 package com.aprendec.controller;
 
 import java.io.IOException;
