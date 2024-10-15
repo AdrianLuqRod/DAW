@@ -29,7 +29,6 @@ public class ProductoController extends HttpServlet {
      */
     public ProductoController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -106,7 +105,6 @@ public class ProductoController extends HttpServlet {
      * response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         HttpSession session = request.getSession();
         String opcion = request.getParameter("opcion");
         Date fechaActual = new Date();
@@ -133,6 +131,7 @@ public class ProductoController extends HttpServlet {
 
     /**
      * Crea un producto en la base de datos con los datos del formulario de crear.jsp
+     *
      * @param request
      * @param session
      * @param fechaActual
@@ -164,6 +163,7 @@ public class ProductoController extends HttpServlet {
 
     /**
      * Modifica un producto en la base de datos con los datos del formulario de editar.jsp
+     *
      * @param request
      * @param response
      * @param session
