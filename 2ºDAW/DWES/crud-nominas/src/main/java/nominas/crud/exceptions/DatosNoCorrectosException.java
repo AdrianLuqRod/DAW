@@ -1,4 +1,4 @@
-package nominas.crud;
+package nominas.crud.exceptions;
 
 public class DatosNoCorrectosException extends RuntimeException {
     public DatosNoCorrectosException(String message) {

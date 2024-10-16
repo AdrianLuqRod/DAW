@@ -1,6 +1,6 @@
 package nominas.crud.model;
 
-import nominas.crud.DatosNoCorrectosException;
+import nominas.crud.exceptions.DatosNoCorrectosException;
 
 public class Empleado {
     private String nombre, dni;

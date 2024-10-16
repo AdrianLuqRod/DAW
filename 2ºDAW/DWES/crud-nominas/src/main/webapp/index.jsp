@@ -7,6 +7,6 @@
 <body>
 <h1>Menu Empresarial</h1>
 <br/>
-<a href="#">Hola</a>
+<a href="views/ListarTodo.jsp">Listar Empleados</a>
 </body>
 </html>
