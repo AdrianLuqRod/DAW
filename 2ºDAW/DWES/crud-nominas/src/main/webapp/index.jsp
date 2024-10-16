@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+  <title>JSP - Hello World</title>
 </head>
 <body>
-<h1>Menu Empresarial
-</h1>
+<h1>Menu Empresarial</h1>
 <br/>
-<a href="#">Boton</a>
+<a href="#">Hola</a>
 </body>
 </html>
