@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <title>MUNDO EMPRESARIAL</title>
 </head>
 <body>
 <h1>Menu Empresarial</h1>
 <br/>
-<a href="views/ListarTodo.jsp">Listar Empleados</a>
+<a href="empresa?opcion=crear">Crear Empleado</a>
+<a href="empresa?opcion=listar">Listar Empleados</a>
 </body>
 </html>

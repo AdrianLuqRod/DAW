@@ -1,24 +1,36 @@
-function ask2(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
+function esPrimo(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
 }
 
-ask(
-  "Do you agree?",
-  function () { alert("You agreed."); },
-  function () { alert("You canceled the execution."); }
-)
-
-
-
-let ask = (question, yes, no) => {
-  if (confirm(question)) yes();
-  else no();
-
+function descomposionNumero(num) {
+  for (let i = 2; i <= num; i++) {
+    while (num % i === 0) {
+      console.log(i + " ");
+      num /= i;
+    }
+  }
 }
 
-ask(
-  "Do you agree?",
-  () => alert("You agreed."),
-  () => alert("You canceled the execution.")
-)
+let input;
+
+while (true) {
+  input = prompt("Introduce un numero: ");
+  if (input === "") break;
+  let num = parseInt(input);
+  let numSuma = 0;
+  if (!isNaN(num)) {
+    numSuma += num;
+  }
+}
+console.log(`La suma de los numeros es: ${numSuma}`);
+
+if (isPrimo(numSuma)) {
+  console.log("El numero es primo");
+} else {
+  console.log("El numero no es primo");
+  descomposionNumero(numSuma);
+}
