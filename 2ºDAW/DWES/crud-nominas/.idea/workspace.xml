@@ -11,27 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99224bf7-34ac-4ce4-b3e8-23fb6a81b6e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/controller/EmpleadoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/dao/EmpleadoDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/dao/EmpleadoDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/exceptions/DatosNoCorrectosException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/model/Empleado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/java/com/aprendec/pool/MyDataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/webapp/views/crearEmpleado.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nominas-crud/src/main/webapp/views/listarTodo.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +79,95 @@
     ]
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.30" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="crud-nominas:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/crud_nominas_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="bd8d3c20-22d9-4c0e-8b45-5b331dfffab4" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56527" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="crud-nominas:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -120,6 +188,7 @@
       <workItem from="1729247378683" duration="100000" />
       <workItem from="1729247570583" duration="1073000" />
       <workItem from="1729248650958" duration="52000" />
+      <workItem from="1729248816424" duration="667000" />
     </task>
     <servers />
   </component>
