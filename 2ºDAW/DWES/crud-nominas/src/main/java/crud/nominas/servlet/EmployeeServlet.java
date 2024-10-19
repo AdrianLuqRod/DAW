@@ -145,6 +145,8 @@ public class EmployeeServlet extends HttpServlet {
             if(isValidParams(req, session)) {
                 empl = assignParams(req);
                 emplDaoImpl.update(empl);
+            }else{
+                session.setAttribute("error", "Invalid parameters");
             }
         } catch(Exception ex) {
             ex.printStackTrace();

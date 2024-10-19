@@ -2,15 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CRUD EMPRESARIAL</title>
+  <title>BUSINESS CRUD</title>
+  <link rel="stylesheet" href="css/styleIndex.css"/>
 </head>
 <body>
-<h1>Menu Empresarial
+<h1>BUSINESS MENU
 </h1>
 <br/>
-<a href="empresa?option=create">Crear Empleado</a>
-<a href="empresa?option=listing">Listar Empleados</a>
-<a href="empresa?option=salary">Buscar Salario</a>
-<a href="empresa?option=search">Buscar Empleado</a>
+<a href="empresa?option=create">Create Employee</a>
+<a href="empresa?option=listing">List Employees</a>
+<a href="empresa?option=salary">Search Salary</a>
+<a href="empresa?option=search">Search Employee</a>
 </body>
 </html>

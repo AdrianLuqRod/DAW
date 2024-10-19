@@ -10,6 +10,7 @@
 <html>
 <head>
   <title>Search Employee</title>
+  <link rel="stylesheet" href="css/styleSearchEmployee.css"/>
 </head>
 <body>
 <h1>Search Employees with ANY information!</h1>

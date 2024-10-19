@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>EmployeeMaker</title>
+  <link rel="stylesheet" href="css/styleAddEmployee.css"/>
 </head>
 <body>
 <h1>Make an Employee!</h1>
