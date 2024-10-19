@@ -14,19 +14,22 @@
         </tr>
         <tr>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name"/>
+            <input type="text" name="name" id="name" pattern="[A-Za-z\s]+" title="Only letters are allowed"/>
         </tr>
         <tr>
             <label for="gender">Gender:</label>
-            <input type="text" name="gender" id="gender"/>
+            <select name="gender" id="gender">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
         </tr>
         <tr>
             <label for="category">Category:</label>
-            <input type="text" name="category" id="category"/>
+            <input type="number" name="category" id="category" min="1" max="10" title="Only numbers between 1 and 10 are allowed"/>
         </tr>
         <tr>
             <label for="workingYears">Working Years:</label>
-            <input type="text" name="workingYears" id="workingYears"/>
+            <input type="number" name="workingYears" id="workingYears" min="0" title="Only numbers are allowed"/>
         </tr>
 
     </table>
@@ -37,6 +40,6 @@
     <% }
         session.removeAttribute("error"); %>
 </form>
-<p><a href="index.jsp">Volver al inicio</a></p>
+<p><a href="index.jsp">Back to index</a></p>
 </body>
 </html>

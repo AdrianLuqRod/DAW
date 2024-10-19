@@ -26,9 +26,12 @@
             <td><c:out value="${employee.salary}"></c:out></td>
         </tr>
     </c:forEach>
-
 </table>
-
-<p><a href="index.jsp">Volver al inicio</a></p>
+<% if(session.getAttribute("error4") != null) { %>
+<p><%=session.getAttribute("error4")%>
+</p>
+<% }
+    session.removeAttribute("error4"); %>
+<p><a href="index.jsp">Back to index</a></p>
 </body>
 </html>

@@ -5,7 +5,7 @@ import crud.nominas.model.Payroll;
 
 public class Employee {
     private String name, dni;
-    private char gender;
+    private String gender;
     private int category, workYears, salary;
 
     /**
@@ -18,7 +18,7 @@ public class Employee {
      * @param workYears Employee's workYears. Must be positive.
      * @throws DatosNoCorrectosException if the category is not between 1 and 10 or if the number of years is negative.
      */
-    public Employee(char gender, String dni, String name, int category, int workYears) {
+    public Employee(String gender, String dni, String name, int category, int workYears) {
         if(category < 1 || category > 10 || workYears < 0) {
             throw new DatosNoCorrectosException("Invalid data");
         }
@@ -30,12 +30,15 @@ public class Employee {
         this.salary = new Payroll().calculateSalary(this);
     }
 
-    public Employee(char gender, String dni, String name) {
+    public Employee(String gender, String dni, String name) {
         this.name = name;
         this.dni = dni;
         this.gender = gender;
         this.category = 1;
         this.workYears = 0;
+    }
+
+    public Employee() {
     }
 
     public int getSalary() {
@@ -58,11 +61,11 @@ public class Employee {
         this.dni = dni;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

@@ -13,6 +13,8 @@ public interface EmployeeDao {
 
     List<Employee> getAll() throws SQLException;
 
+    List<Employee> getByAnything(Employee empl) throws SQLException;
+
     int update(Employee empl) throws SQLException;
 
     void delete(String dni) throws SQLException;

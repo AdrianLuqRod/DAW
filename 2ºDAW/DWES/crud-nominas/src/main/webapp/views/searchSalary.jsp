@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Find a Salary by ID!</title>
@@ -6,7 +7,7 @@
 <body>
 <form action="empresa" method="POST">
     <input type="hidden" name="option" value="searchSalary"/>
-  <label for="dni">DNI:</label>
+    <label for="dni">DNI:</label>
     <input type="text" name="dni" id="dni"/>
     <span><input type="submit" value="Buscar"/></span>
 
@@ -30,6 +31,12 @@
             </tr>
         </c:forEach>
     </table>
+    <% if(session.getAttribute("error2") != null) { %>
+    <p><%=session.getAttribute("error2")%>
+    </p>
+    <% }
+        session.removeAttribute("error2"); %>
 </form>
+<p><a href="index.jsp">Back to index</a></p>
 </body>
 </html>
