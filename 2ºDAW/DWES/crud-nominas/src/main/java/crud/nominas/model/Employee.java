@@ -1,9 +1,10 @@
 package crud.nominas.model;
 
 import crud.nominas.exceptions.DatosNoCorrectosException;
-import crud.nominas.model.Payroll;
+
 
 public class Employee {
+
     private String name, dni;
     private String gender;
     private int category, workYears, salary;
@@ -16,6 +17,7 @@ public class Employee {
      * @param name      Employee's name
      * @param category  Employee's category. Must be between 1 and 10.
      * @param workYears Employee's workYears. Must be positive.
+     *
      * @throws DatosNoCorrectosException if the category is not between 1 and 10 or if the number of years is negative.
      */
     public Employee(String gender, String dni, String name, int category, int workYears) {
@@ -87,12 +89,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", dni='" + dni + '\'' +
-                ", gender=" + gender +
-                ", category=" + category +
-                ", workYears=" + workYears +
-                '}';
+        return "Employee{" + "name='" + name + '\'' + ", dni='" + dni + '\'' + ", gender=" + gender + ", category=" + category + ", workYears=" + workYears + '}';
     }
+
 }

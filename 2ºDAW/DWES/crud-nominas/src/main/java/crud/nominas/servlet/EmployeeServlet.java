@@ -15,8 +15,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet (description = "Employee Servlet", urlPatterns = {"/empresa"})
+
+@WebServlet (description = "Employee " + "Servlet", urlPatterns = {"/empresa"})
 public class EmployeeServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     public EmployeeServlet() {
@@ -29,7 +31,8 @@ public class EmployeeServlet extends HttpServlet {
         if(option.equals("create")) {
             RequestDispatcher rd = req.getRequestDispatcher("/views/addEmployee.jsp");
             rd.forward(req, resp);
-        } else if(option.equals("listing")) {
+        }
+        else if(option.equals("listing")) {
             EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             try {
                 List<Employee> employeeList = empleadoDaoImpl.getAll();
@@ -39,14 +42,17 @@ public class EmployeeServlet extends HttpServlet {
             } catch(Exception ex) {
                 ex.printStackTrace();
             }
-        } else if(option.equals("salary")) {
+        }
+        else if(option.equals("salary")) {
             RequestDispatcher rd = req.getRequestDispatcher("/views/searchSalary.jsp");
             rd.forward(req, resp);
 
-        } else if(option.equals("search")) {
+        }
+        else if(option.equals("search")) {
             RequestDispatcher rd = req.getRequestDispatcher("/views/searchEmployee.jsp");
             rd.forward(req, resp);
-        } else if(option.equals("editEmployee")) {
+        }
+        else if(option.equals("editEmployee")) {
             EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             String dni = req.getParameter("dni");
             Employee empl = new Employee();
@@ -58,7 +64,8 @@ public class EmployeeServlet extends HttpServlet {
             } catch(SQLException ex) {
                 ex.printStackTrace();
             }
-        } else if(option.equals("deleteEmployee")) {
+        }
+        else if(option.equals("deleteEmployee")) {
             EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             String dni = req.getParameter("dni");
             try {
@@ -80,15 +87,18 @@ public class EmployeeServlet extends HttpServlet {
             if(session.getAttribute("error") != null) {
                 RequestDispatcher rd = req.getRequestDispatcher("/views/addEmployee.jsp");
                 rd.forward(req, resp);
-            } else {
+            }
+            else {
                 resp.sendRedirect(req.getContextPath() + "/empresa?option=listing");
             }
-        } else if(option.equals("searchSalary")) {
+        }
+        else if(option.equals("searchSalary")) {
             searchSalary(req, session);
             if(session.getAttribute("error") != null || session.getAttribute("error2") != null) {
                 RequestDispatcher rd = req.getRequestDispatcher("/views/searchSalary.jsp");
                 rd.forward(req, resp);
-            } else {
+            }
+            else {
                 List<Employee> singleEmployee = new ArrayList<>();
                 singleEmployee.add(searchSalary(req, session));
                 session.setAttribute("Employee", singleEmployee);
@@ -96,24 +106,27 @@ public class EmployeeServlet extends HttpServlet {
                 rd.forward(req, resp);
                 singleEmployee.clear();
             }
-        } else if(option.equals("searchEmployee")) {
+        }
+        else if(option.equals("searchEmployee")) {
             List<Employee> employeeList = searchEmployee(req, session);
             if(employeeList.isEmpty()) {
                 RequestDispatcher rd = req.getRequestDispatcher("/views/searchEmployee.jsp");
                 rd.forward(req, resp);
                 session.setAttribute("error3", "No employees found");
-            } else {
+            }
+            else {
                 session.setAttribute("EmployeeList", employeeList);
                 RequestDispatcher rd = req.getRequestDispatcher("/views/searchEmployee.jsp");
                 rd.forward(req, resp);
             }
             employeeList.clear();
-        } else if(option.equals("edit")) {
+        }
+        else if(option.equals("edit")) {
             editEmployee(req, session);
             if(session.getAttribute("error") != null) {
-                resp.sendRedirect(req.getContextPath() + "/empresa?option=editEmployee&dni=" +
-                        req.getParameter("dni"));
-            } else {
+                resp.sendRedirect(req.getContextPath() + "/empresa?option=editEmployee&dni=" + req.getParameter("dni"));
+            }
+            else {
                 resp.sendRedirect(req.getContextPath() + "/empresa?option=listing");
             }
         }
@@ -145,7 +158,8 @@ public class EmployeeServlet extends HttpServlet {
             if(isValidParams(req, session)) {
                 empl = assignParams(req);
                 emplDaoImpl.update(empl);
-            }else{
+            }
+            else {
                 session.setAttribute("error", "Invalid parameters");
             }
         } catch(Exception ex) {
@@ -157,17 +171,12 @@ public class EmployeeServlet extends HttpServlet {
      * Validate the parameters received from the form.
      *
      * @param req
+     *
      * @return True if the parameters are correct.
      */
     private boolean isValidParams(HttpServletRequest req, HttpSession session) {
-        System.out.println(req.getParameter("name") + " " + req.getParameter("dni") + " "
-                + req.getParameter("category") + " " + req.getParameter("workingYears") + " "
-                + req.getParameter("gender"));
-        if(req.getParameter("name") == null || req.getParameter("name").isEmpty() ||
-                req.getParameter("dni") == null || req.getParameter("dni").isEmpty() ||
-                req.getParameter("category") == null || req.getParameter("category").isEmpty() ||
-                req.getParameter("workingYears") == null || req.getParameter("workingYears").isEmpty() ||
-                req.getParameter("gender") == null || req.getParameter("gender").isEmpty()) {
+        System.out.println(req.getParameter("name") + " " + req.getParameter("dni") + " " + req.getParameter("category") + " " + req.getParameter("workingYears") + " " + req.getParameter("gender"));
+        if(req.getParameter("name") == null || req.getParameter("name").isEmpty() || req.getParameter("dni") == null || req.getParameter("dni").isEmpty() || req.getParameter("category") == null || req.getParameter("category").isEmpty() || req.getParameter("workingYears") == null || req.getParameter("workingYears").isEmpty() || req.getParameter("gender") == null || req.getParameter("gender").isEmpty()) {
             session.setAttribute("error", "Invalid parameters");
             return false;
         }
@@ -179,13 +188,12 @@ public class EmployeeServlet extends HttpServlet {
      * Assign the parameters received from the form to an Employee object.
      *
      * @param req
+     *
      * @return Employee object.
      */
     private Employee assignParams(HttpServletRequest req) {
-        return new Employee(req.getParameter("gender"),
-                req.getParameter("dni"), req.getParameter("name"),
-                Integer.parseInt(req.getParameter("category")),
-                Integer.parseInt(req.getParameter("workingYears")));
+        return new Employee(req.getParameter("gender"), req.getParameter("dni"), req.getParameter("name"),
+                Integer.parseInt(req.getParameter("category")), Integer.parseInt(req.getParameter("workingYears")));
     }
 
     private Employee searchSalary(HttpServletRequest req, HttpSession session) {
@@ -232,13 +240,17 @@ public class EmployeeServlet extends HttpServlet {
     private Employee addParams(HttpServletRequest req, Employee empl) {
         if(req.getParameter("name") != null && !req.getParameter("name").isEmpty()) {
             empl.setName(req.getParameter("name"));
-        } else if(req.getParameter("dni") != null && !req.getParameter("dni").isEmpty()) {
+        }
+        else if(req.getParameter("dni") != null && !req.getParameter("dni").isEmpty()) {
             empl.setDni(req.getParameter("dni"));
-        } else if(req.getParameter("category") != null && !req.getParameter("category").isEmpty()) {
+        }
+        else if(req.getParameter("category") != null && !req.getParameter("category").isEmpty()) {
             empl.setCategory(Integer.parseInt(req.getParameter("category")));
-        } else if(req.getParameter("workingYears") != null && !req.getParameter("workingYears").isEmpty()) {
+        }
+        else if(req.getParameter("workingYears") != null && !req.getParameter("workingYears").isEmpty()) {
             empl.setWorkYears(Integer.parseInt(req.getParameter("workingYears")));
-        } else if(req.getParameter("gender") != null && !req.getParameter("gender").isEmpty()) {
+        }
+        else if(req.getParameter("gender") != null && !req.getParameter("gender").isEmpty()) {
             empl.setGender(req.getParameter("gender"));
         }
         return empl;
@@ -252,4 +264,5 @@ public class EmployeeServlet extends HttpServlet {
         return true;
 
     }
+
 }

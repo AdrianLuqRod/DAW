@@ -28,7 +28,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to add an Employee to the database
      *
      * @param empl
+     *
      * @return 1 if the employee was added, 0 otherwise
+     *
      * @throws SQLException
      */
     @Override
@@ -36,8 +38,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = "INSERT INTO empleado VALUES(?, ?, ?, ?, ?)";
         int result = 0;
 
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, empl.getDni());
             pstmt.setString(2, empl.getName());
             pstmt.setInt(3, empl.getCategory());
@@ -45,7 +47,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
             pstmt.setString(5, String.valueOf(empl.getGender()));
 
             result = pstmt.executeUpdate();
-        } catch(Exception ex) {
+        }
+        catch (Exception ex) {
             ex.printStackTrace();
         }
         return result;
@@ -55,7 +58,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to get an Employee by its DNI
      *
      * @param dni
+     *
      * @return Employee object if found, null otherwise
+     *
      * @throws SQLException
      */
     @Override
@@ -64,17 +69,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = """
                 SELECT * FROM empleado WHERE dni = ?;
                 """;
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pst = conn.prepareStatement(sql);) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql);) {
             pst.setString(1, dni);
-            try(ResultSet rs = pst.executeQuery();) {
-                while(rs.next()) {
+            try (ResultSet rs = pst.executeQuery();) {
+                while (rs.next()) {
                     empl = doEmployee(rs);
                 }
-            } catch(SQLException ex) {
+            }
+            catch (SQLException ex) {
                 ex.printStackTrace();
             }
-        } catch(SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
         return empl;
@@ -84,6 +91,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to get all Employees from the database
      *
      * @return List of Employee objects
+     *
      * @throws SQLException
      */
     @Override
@@ -92,15 +100,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 SELECT * FROM empleado;
                 """;
         List<Employee> empleados = new ArrayList<>();
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery();) {
             Employee empl;
-            while(rs.next()) {
+            while (rs.next()) {
                 empl = doEmployee(rs);
                 empleados.add(empl);
             }
-        } catch(SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
         return empleados;
@@ -110,7 +119,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to update an Employee in the database
      *
      * @param empl
+     *
      * @return
+     *
      * @throws SQLException
      */
     @Override
@@ -119,15 +130,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 UPDATE empleado SET nombre = ?, categoria = ?, anyos = ?, sexo = ? WHERE dni = ?;
                 """;
         int result = 0;
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
             pstmt.setString(1, empl.getName());
             pstmt.setInt(2, empl.getCategory());
             pstmt.setInt(3, empl.getWorkYears());
             pstmt.setString(4, String.valueOf(empl.getGender()));
             pstmt.setString(5, empl.getDni());
             result = pstmt.executeUpdate();
-        } catch(SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
         return result;
@@ -137,6 +149,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to delete an Employee from the database
      *
      * @param dni
+     *
      * @throws SQLException
      */
     @Override
@@ -144,53 +157,55 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = """
                 DELETE FROM empleado where dni = ?;
                 """;
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
             pstmt.setString(1, dni);
             pstmt.executeUpdate();
 
-        } catch(SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
 
     }
 
-    public List<Employee> getByAnything(Employee empl) throws SQLException{
+    public List<Employee> getByAnything(Employee empl) throws SQLException {
         List<Employee> employeeList = new ArrayList<>();
         StringBuilder sql = new StringBuilder("SELECT * FROM empleado WHERE 1=1");
         List<Object> params = new ArrayList<>();
 
-        if(empl.getDni() != null && !empl.getDni().isEmpty()) {
+        if (empl.getDni() != null && !empl.getDni().isEmpty()) {
             sql.append(" AND dni = ?");
             params.add(empl.getDni());
         }
-        if(empl.getName() != null && !empl.getName().isEmpty()) {
+        if (empl.getName() != null && !empl.getName().isEmpty()) {
             sql.append(" AND nombre = ?");
             params.add(empl.getName());
         }
-        if(empl.getCategory() != 0) {
+        if (empl.getCategory() != 0) {
             sql.append(" AND categoria = ?");
             params.add(empl.getCategory());
         }
-        if(empl.getWorkYears() != 0) {
+        if (empl.getWorkYears() != 0) {
             sql.append(" AND anyos = ?");
             params.add(empl.getWorkYears());
         }
-        if(empl.getGender() != null && !empl.getGender().isEmpty()) {
+        if (empl.getGender() != null && !empl.getGender().isEmpty()) {
             sql.append(" AND sexo = ?");
             params.add(String.valueOf(empl.getGender()));
         }
-        try(Connection conn = MyDataSource.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            for(int i = 0; i < params.size(); i++) {
+        try (Connection conn = MyDataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
+            for (int i = 0; i < params.size(); i++) {
                 pstmt.setObject(i + 1, params.get(i));
             }
-            try(ResultSet rs = pstmt.executeQuery()) {
-                while(rs.next()) {
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
                     employeeList.add(doEmployee(rs));
                 }
             }
-        } catch(SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
         return employeeList;
@@ -200,7 +215,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
      * Method to create an Employee object from a ResultSet
      *
      * @param rs
+     *
      * @return Employee object
+     *
      * @throws SQLException
      */
     private Employee doEmployee(ResultSet rs) throws SQLException {

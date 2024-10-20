@@ -6,14 +6,13 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
 public class MyDataSource {
+
     private static HikariConfig config = new HikariConfig();
     private static HikariDataSource dataSource;
 
-    private MyDataSource(){
-    }
-
-    static{
+    static {
         config.setJdbcUrl("jdbc:mysql://localhost:3306/empleados");
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setUsername("root");
@@ -25,7 +24,11 @@ public class MyDataSource {
         dataSource = new HikariDataSource(config);
     }
 
+    private MyDataSource() {
+    }
+
     public static Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
+
 }
