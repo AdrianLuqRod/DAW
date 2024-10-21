@@ -1,36 +1,38 @@
-function esPrimo(num) {
-  if (num <= 1) return false;
-  for (let i = 2; i < num; i++) {
-    if (num % i === 0) return false;
+// Este es el archivo JavaScript inicial para el ejercicio de calidad de código
+
+// Variables globales
+var data = [1, 2, 3, 4, 5];
+var total = 0;
+
+// Función para calcular la suma de los elementos del array
+function sumArray(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    total += arr[i];
   }
-  return true;
+
+  return total;
 }
 
-function descomposionNumero(num) {
-  for (let i = 2; i <= num; i++) {
-    while (num % i === 0) {
-      console.log(i + " ");
-      num /= i;
+// Función para calcular el promedio de los elementos del array
+function averageArray(arr) {
+  var sum = sumArray(arr);
+  var average = sum / arr.length;
+
+  return average;
+}
+
+// Función para buscar un elemento en el array
+function findElement(arr, element) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return true;
     }
   }
+
+  return false;
 }
 
-let input;
-
-while (true) {
-  input = prompt("Introduce un numero: ");
-  if (input === "") break;
-  let num = parseInt(input);
-  let numSuma = 0;
-  if (!isNaN(num)) {
-    numSuma += num;
-  }
-}
-console.log(`La suma de los numeros es: ${numSuma}`);
-
-if (isPrimo(numSuma)) {
-  console.log("El numero es primo");
-} else {
-  console.log("El numero no es primo");
-  descomposionNumero(numSuma);
-}
+// Ejecución del código
+console.log('Suma:', sumArray(data));
+console.log('Promedio:', averageArray(data));
+console.log('¿Contiene el número 3?', findElement(data, 3));
