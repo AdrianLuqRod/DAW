@@ -25,6 +25,15 @@ public class EmployeeServlet extends HttpServlet {
 
     }
 
+    /**
+     * Method to handle GET method request.
+     * @param req an {@link HttpServletRequest} object that contains the request the client has made of the servlet
+     *
+     * @param resp an {@link HttpServletResponse} object that contains the response the servlet sends to the client
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String option = req.getParameter("option");
         HttpSession session = req.getSession();
@@ -73,7 +82,15 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-
+    /**
+     * Method to handle POST method request.
+     * @param req an {@link HttpServletRequest} object that contains the request the client has made of the servlet
+     *
+     * @param resp an {@link HttpServletResponse} object that contains the response the servlet sends to the client
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String option = req.getParameter("option");
@@ -83,6 +100,7 @@ public class EmployeeServlet extends HttpServlet {
                 RequestDispatcher rd = req.getRequestDispatcher("/views/addEmployee.jsp");
                 rd.forward(req, resp);
             } else {
+                session.setAttribute("error", "Employee added succesfully");
                 resp.sendRedirect(req.getContextPath() + "/empresa?option=listing");
             }
         } else if(option.equals("searchSalary")) {
@@ -166,7 +184,6 @@ public class EmployeeServlet extends HttpServlet {
      * @return True if the parameters are correct.
      */
     private boolean isValidParams(HttpServletRequest req, HttpSession session) {
-        System.out.println(req.getParameter("name") + " " + req.getParameter("dni") + " " + req.getParameter("category") + " " + req.getParameter("workingYears") + " " + req.getParameter("gender"));
         if(req.getParameter("name") == null || req.getParameter("name").isEmpty() || req.getParameter("dni") == null || req.getParameter("dni").isEmpty() || req.getParameter("category") == null || req.getParameter("category").isEmpty() || req.getParameter("workingYears") == null || req.getParameter("workingYears").isEmpty() || req.getParameter("gender") == null || req.getParameter("gender").isEmpty()) {
             session.setAttribute("error", "Invalid parameters");
             return false;
