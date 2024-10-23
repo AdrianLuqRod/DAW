@@ -169,6 +169,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     }
 
+    /**
+     * Method to get an Employee by any field.
+     * @param empl
+     * @return List of Employee objects that match the search criteria.
+     * @throws SQLException
+     */
     public List<Employee> getByAnything(Employee empl) throws SQLException {
         List<Employee> employeeList = new ArrayList<>();
         StringBuilder sql = new StringBuilder("SELECT * FROM empleado WHERE 1=1");

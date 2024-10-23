@@ -36,11 +36,12 @@
   </table>
   <span><input type="submit" value="Save"/></span>
   <% if(session.getAttribute("error") != null) { %>
-  <p><%=session.getAttribute("error")%>
+  <p style="color: #293242; border: 4px solid #293242; border-radius: 5px; padding:3px"><%=session.getAttribute("error")%>
   </p>
   <% }
     session.removeAttribute("error"); %>
 </form>
 <p><a href="index.jsp">Back to index</a></p>
+<p><a href="javascript:history.back()">Previous page</a></p>
 </body>
 </html>

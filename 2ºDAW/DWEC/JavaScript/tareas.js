@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // ? Ejercicio 2
 
 let alumnos = Math.floor(Math.random() * (31 - 20 + 1) + 20); //! <-- Guapa este de aqui da un numero de 20 hasta 31. (incluyendo ambos)
@@ -214,3 +215,5 @@ let extraerEuroGuapi = (precio) => {
 // - Y como queremos el precio, simplemente devolvemos division2[0] que es el precio sin el punto.
 
 // - Me he tirao un ratillo al final haciendo esto ghfjdkgh jeje espero que te sirva mucho guapi. <3
+=======
+>>>>>>> 2f4aa829215e537b8af874cb84e263a1a78a2054

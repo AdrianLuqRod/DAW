@@ -24,9 +24,17 @@ public class MyDataSource {
         dataSource = new HikariDataSource(config);
     }
 
+    /**
+     * Private constructor so it can't be instantiated.
+     */
     private MyDataSource() {
     }
 
+    /**
+     * Method to establish a connection to the database.
+     * @return Returns a Connection object.
+     * @throws SQLException
+     */
     public static Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
