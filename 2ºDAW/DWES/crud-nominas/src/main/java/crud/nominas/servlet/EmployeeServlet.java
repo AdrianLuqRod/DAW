@@ -37,6 +37,7 @@ public class EmployeeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String option = req.getParameter("option");
         HttpSession session = req.getSession();
+
         if(option.equals("create")) {
             RequestDispatcher rd = req.getRequestDispatcher("/views/addEmployee.jsp");
             rd.forward(req, resp);
