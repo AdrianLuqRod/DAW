@@ -47,7 +47,7 @@ body {
 }
 
 .banner img {
-  width: 98.8rem;
+  width: 100%;
 }
 
 .container,
@@ -57,11 +57,13 @@ body {
 
 .container {
   display: flex;
-  padding: 2rem 20rem;
+  justify-content: center;
+  padding: 2rem 0;
   border-bottom: 1px solid black;
 }
 
 .container .content_wrapper {
+  width: 13%;
   margin-right: 2rem;
 }
 
@@ -126,8 +128,9 @@ body {
 }
 
 .container .article {
+  width: 32%;
   background-color: white;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1rem;
   border: 1px solid #e6e6e6;
   padding-bottom: 6rem;
 }
@@ -146,6 +149,10 @@ body {
   padding-left: 1.5rem;
   width: 37rem;
   margin-bottom: 1.5rem;
+}
+
+.container .article div p {
+  text-align: justify;
 }
 
 .container .article div p a {
