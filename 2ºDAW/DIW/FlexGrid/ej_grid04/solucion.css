@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: oldlace;
+  display: grid;
+  grid-template-rows: 30px 215px 550px 1200px 450px;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "cabecera"
+    "logo"
+    "tandem"
+    "contenedor"
+    "pie";
+}
+
+#cabecera {
+  grid-area: cabecera;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+#cabecera li {
+  list-style-type: none;
+}
+
+#cabecera a {
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+}
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+#logo {
+  grid-area: logo;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#tandem {
+  grid-area: tandem;
+  width: 100%;
+}
+
+#tandem img {
+  width: 100%;
+}
+
+#container {
+  grid-area: contenedor;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 5% 25% 5% 15% 45%;
+  grid-template-columns: 2fr 1.5fr 4.5fr 2fr;
+  grid-gap: 1%;
+  grid-template-areas:
+    ". idiomas presenta ."
+    ". noticias presenta ."
+    ". formulario presenta ."
+    ". redes presenta ."
+    ". . presenta .";
+}
+
+#logo {
+  margin-bottom: 25px;
+}
+#logo img {
+  width: 100%;
+}
+
+#laterales > div {
+  width: 100%;
+  background-color: white;
+}
+
+#idiomas {
+  grid-area: idiomas;
+  width: 100%;
+  background-color: white;
+  align-self: center;
+}
+
+#idiomas > ul {
+  grid-area: idiomas;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+#idiomas li {
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+#noticias {
+  grid-area: noticias;
+  width: 100%;
+  background-color: white;
+}
+
+.titulo {
+  margin-left: 12.5%;
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+}
+
+#noticias ul {
+  margin: 5%;
+}
+
+#noticias li {
+  margin-bottom: 5px;
+}
+
+#noticias a {
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+}
+
+#formulario {
+  grid-area: formulario;
+  width: 100%;
+  background-color: white;
+  align-self: center;
+}
+
+#formulario input {
+  margin: 5%;
+  margin-left: 12.5%;
+}
+
+#redes {
+  grid-area: redes;
+  width: 100%;
+  background-color: white;
+  padding-bottom: 5%;
+}
+
+.clasefilaredes {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  margin-left: 12.5%;
+}
+
+.clasefilaredes a {
+  margin-right: 5px;
+}
+
+#presentacion {
+  grid-area: presenta;
+  background-color: white;
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#presentacion > h1 > a {
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#presentacion p {
+  text-align: justify;
+  color: rgb(80, 80, 80);
+  font-size: 1em;
+}
+
+#presentacion > img {
+  width: 100%;
+}
+
+#pie {
+  grid-area: pie;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 55% 45%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    ". ubica certifica ministerio ."
+    ". logosubica logoscertifica logosministerio .";
+}
+
+#ubica {
+  grid-area: ubica;
+}
+
+#certifica {
+  grid-area: certifica;
+}
+
+#ministerio {
+  grid-area: ministerio;
+}
+
+#logosubica {
+  grid-area: logosubica;
+}
+
+#logoscertifica {
+  grid-area: logoscertifica;
+}
+
+#logosministerio {
+  grid-area: logosministerio;
+}
+
+.celdapie {
+  width: 100%;
+}
+
+.celdapie h3,
+.celdapie p,
+.celdapie > p > a {
+  color: rgb(80, 80, 80);
+  text-align: center;
+  text-decoration: none;
+}
