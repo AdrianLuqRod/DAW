@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 30px 215px 550px 1200px 450px;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "cabecera"
+    "logo"
+    "tandem"
+    "contenedor"
+    "pie";
+}
+
+#cabecera {
+  grid-area: cabecera;
+  /* justify-items: center; */
+}
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  list-style: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+#menu li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(80, 80, 80);
+}
+
+#logo {
+  grid-area: logo;
+  width: 30%;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+#logo img {
+  justify-items: center;
+  width: 100%;
+}
+
+#tandem {
+  grid-area: tandem;
+  width: 100%;
+}
+
+#tandem img {
+  width: 100%;
+}
+
+#container {
+  grid-area: contenedor;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 5% 25% 5% 15% 45%;
+  grid-template-columns: 2fr 1.5fr 4.5fr 2fr;
+  grid-gap: 1%;
+  grid-template-areas:
+    ". idiomas presenta ."
+    ". noticias presenta ."
+    ". formulario presenta ."
+    ". redes presenta ."
+    ". . presenta .";
+}
+
+#idiomas {
+  grid-area: idiomas;
+  width: 100%;
+}
+
+#noticias {
+  grid-area: noticias;
+  width: 100%;
+}
+
+#formulario {
+  grid-area: formulario;
+  width: 100%;
+}
+
+#redes {
+  grid-area: redes;
+  width: 100%;
+}
+
+#presentacion {
+  grid-area: presenta;
+  width: 100%;
+}
+
+#presentacion img {
+  width: 100%;
+}
+
+#pie {
+  grid-area: pie;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 55% 45%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    ". ubica certifica ministerio ."
+    ". logosubica logoscertifica logosministerio .";
+}
+
+#ubica {
+  grid-area: ubica;
+}
+
+#certifica {
+  grid-area: certifica;
+}
+
+#ministerio {
+  grid-area: ministerio;
+}
+
+#logosubica {
+  grid-area: logosubica;
+}
+
+#logoscertifica {
+  grid-area: logoscertifica;
+}
+
+#logosministerio {
+  grid-area: logosministerio;
+}
+
+.celdapie h3,
+.celdapie p,
+.celdapie > p > a {
+  color: rgb(80, 80, 80);
+  text-align: center;
+  text-decoration: none;
+}
