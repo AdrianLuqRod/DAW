@@ -28,3 +28,15 @@ let obtenerMaxSubsSum = (codigos) => {
 };
 
 console.log(obtenerMaxSubsSum(codigos)); // 7
+
+let num = 8;
+// ejemplo, el factorial de 8 es 8*7*6*5*4*3*2*1=40320
+
+let obtenerFactorial = (num) => {
+  let factorial = num;
+  for (let i = 1; i < num; i++) {
+    factorial *= i;
+  }
+
+  return factorial;
+};
