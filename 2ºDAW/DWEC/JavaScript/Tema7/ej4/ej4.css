@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 2rem;
+  border-top: 1px solid gray;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e3eef4;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+}
+
+header a {
+  text-decoration: none;
+}
+
+main h1 {
+  margin: 1rem 0;
+}
+
+main .container {
+  border: 2px solid red;
+  width: 65rem;
+}
+
+main .container .pregunta {
+  cursor: pointer;
+  color: blue;
+}
+
+.respuesta {
+  visibility: hidden;
+  position: absolute;
+}
