@@ -1,12 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: laray
-  Date: 19/10/2024
-  Time: 15:35
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="crud.nominas.model.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Edit Employee</title>
@@ -15,15 +8,17 @@
 <body>
 <h1>Edit an Employee!</h1>
 <form action="empresa" method="POST">
-    <c:set var="employee" value="${Employee}"></c:set>
+    <%
+        Employee employee = (Employee) request.getAttribute("Employee");
+    %>
     <input type="hidden" name="option" value="edit"/>
-    <input type="hidden" name="dni" value="${employee.dni}"/>
+    <input type="hidden" name="dni" value="<%= employee.getDni() %>"/>
     <table>
         <tr>
             <td>Name:</td>
             <td>
                 <input
-                        value="${employee.name}"
+                        value="<%= employee.getName() %>"
                         type="text"
                         name="name"
                         pattern="[A-Za-z\s]+"
@@ -35,8 +30,8 @@
             <td>Gender:</td>
             <td>
                 <select name="gender" id="gender">
-                    <option value="M" ${employee.gender == 'M' ? 'selected' : ''}>M</option>
-                    <option value="F" ${employee.gender == 'F' ? 'selected' : ''}>F</option>
+                    <option value="M" <%= "M".equals(employee.getGender()) ? "selected" : "" %>>M</option>
+                    <option value="F" <%= "F".equals(employee.getGender()) ? "selected" : "" %>>F</option>
                 </select>
             </td>
         </tr>
@@ -44,7 +39,7 @@
             <td>Category:</td>
             <td>
                 <input
-                        value="${employee.category}"
+                        value="<%= employee.getCategory() %>"
                         type="number"
                         name="category"
                         min="1"
@@ -57,7 +52,7 @@
             <td>Working Years:</td>
             <td>
                 <input
-                        value="${employee.workYears}"
+                        value="<%= employee.getWorkYears() %>"
                         type="number"
                         name="workingYears"
                         min="0"
@@ -65,10 +60,9 @@
                 />
             </td>
         </tr>
-
     </table>
     <span><input type="submit" value="Save"/></span>
-    <% if(session.getAttribute("error") != null) { %>
+    <% if (session.getAttribute("error") != null) { %>
     <p style="color: #293242; border: 4px solid #293242; border-radius: 5px; padding:3px"><%=session.getAttribute("error") %>
     </p>
     <% session.removeAttribute("error");

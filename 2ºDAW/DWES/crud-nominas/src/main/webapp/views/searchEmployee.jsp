@@ -1,12 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: laray
-  Date: 17/10/2024
-  Time: 18:34
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="crud.nominas.model.Employee" %>
+<%@ page import="java.util.List" %>
 <html>
 <head>
     <title>Search Employee</title>
@@ -56,31 +50,56 @@
             <td>Salary</td>
             <td>EXTRA</td>
         </tr>
-        <c:forEach var="employee" items="${EmployeeList}">
-            <tr>
-                <td>
-                    <button><a href="empresa?option=editEmployee&dni=<c:out value="${ employee.dni}"></c:out>">
-                        Customize
-                    </a>
-                    </button>
-                </td>
-                <td><c:out value="${employee.dni}"></c:out></td>
-                <td><c:out value="${employee.name}"></c:out></td>
-                <td><c:out value="${employee.gender}"></c:out></td>
-                <td><c:out value="${employee.category}"></c:out></td>
-                <td><c:out value="${employee.workYears}"></c:out></td>
-                <td><c:out value="${employee.salary}€"></c:out></td>
-                <td>
-                    <button><a href="empresa?option=deleteEmployee&dni=<c:out value="${ employee.dni}"></c:out>">
-                        Delete
-                    </a>
-                    </button>
-                </td>
-            </tr>
-        </c:forEach>
+        <%
+            List<Employee> employeeList = (List<Employee>) session.getAttribute("EmployeeList");
+            if (employeeList != null) {
+                for (Employee employee : employeeList) {
+        %>
+        <tr>
+            <td>
+                <button><a href="empresa?option=editEmployee&dni=<%= employee.getDni() %>">
+                    Customize
+                </a>
+                </button>
+            </td>
+            <td><%= employee.getDni() %>
+            </td>
+            <td><%= employee.getName() %>
+            </td>
+            <td><%= employee.getGender() %>
+            </td>
+            <td><%= employee.getCategory() %>
+            </td>
+            <td><%= employee.getWorkYears() %>
+            </td>
+            <td><%= employee.getSalary() %>€</td>
+            <td>
+                <button><a href="empresa?option=deleteEmployee&dni=<%= employee.getDni() %>">
+                    Delete
+                </a>
+                </button>
+            </td>
+        </tr>
+        <%
+                }
+            }
+        %>
     </table>
 </form>
 
+<% if (session.getAttribute("error") != null) { %>
+<p style="color: #293242; border: 4px solid #293242; border-radius: 5px; padding:3px"><%= session.getAttribute("error") %>
+</p>
+<%
+        session.removeAttribute("error");
+    }
+    if (session.getAttribute("error4") != null) { %>
+<p style="color: #293242; border: 4px solid #293242; border-radius: 5px; padding:3px"><%= session.getAttribute("error4") %>
+</p>
+<%
+        session.removeAttribute("error4");
+    }
+%>
 <p><a href="index.jsp">Back to index</a></p>
 <p><a href="javascript:history.back()">Previous page</a></p>
 </body>

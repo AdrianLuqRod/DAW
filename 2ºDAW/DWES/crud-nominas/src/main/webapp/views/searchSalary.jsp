@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="crud.nominas.model.Employee" %>
+<%@ page import="java.util.List" %>
 <html>
 <head>
     <title>Find a Salary by DNI!</title>
@@ -18,14 +19,22 @@
             <td>DNI</td>
             <td>Salary</td>
         </tr>
-        <c:forEach var="employee" items="${Employee}">
-            <tr>
-                <td><c:out value="${employee.dni}"></c:out></td>
-                <td><c:out value="${employee.salary}€"></c:out></td>
-            </tr>
-        </c:forEach>
+        <%
+            List<Employee> employeeList = (List<Employee>) session.getAttribute("Employee");
+            if (employeeList != null) {
+                for (Employee employee : employeeList) {
+        %>
+        <tr>
+            <td><%= employee.getDni() %>
+            </td>
+            <td><%= employee.getSalary() %>€</td>
+        </tr>
+        <%
+                }
+            }
+        %>
     </table>
-    <% if(session.getAttribute("error2") != null) { %>
+    <% if (session.getAttribute("error2") != null) { %>
     <p style="color: #293242; border: 4px solid #293242; border-radius: 5px; padding:3px"><%=session.getAttribute("error2")%>
     </p>
     <% }

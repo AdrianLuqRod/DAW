@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BUSINESS CRUD</title>
-  <link rel="stylesheet" href="css/styleIndex.css"/>
+    <title>BUSINESS CRUD</title>
+    <link rel="stylesheet" href="css/styleIndex.css"/>
 </head>
 <body>
 <h1>BUSINESS MENU
@@ -13,5 +13,6 @@
 <a href="empresa?option=listing">List Employees</a>
 <a href="empresa?option=salary">Search Salary</a>
 <a href="empresa?option=search">Search Employee</a>
+
 </body>
 </html>
