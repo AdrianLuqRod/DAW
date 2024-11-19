@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ej13</title>
+</head>
+<script src="ej13.js"></script>
+
+<body>
+    <h2>Datos personales</h2>
+    <form action="mailto:aluqrod494@g.educaand.es" method="post" enctype="text/plain">
+
+        <label for="nombre">Introduce tu nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br><br>
+
+        <h3>Elige un color:</h3>
+        <input type="radio" id="rojo" name="color" value="rojo">
+        <label for="rojo">Rojo</label><br>
+        <input type="radio" id="verde" name="color" value="verde">
+        <label for="verde">Verde</label><br>
+        <input type="radio" id="azul" name="color" value="azul">
+        <label for="azul">Azul</label><br><br>
+
+        <label for="asignatura">Selecciona una asignatura:</label><br>
+        <select id="asignatura" name="asignatura">
+            <option value="matematicas">Matemáticas</option>
+            <option value="ciencias">Ciencias</option>
+            <option value="historia">Historia</option>
+        </select><br><br>
+
+        <h3>Selecciona los días con disponibilidad:</h3>
+        <input type="checkbox" id="lunes" name="dias" value="lunes">
+        <label for="lunes">Lunes</label><br>
+        <input type="checkbox" id="martes" name="dias" value="martes">
+        <label for="martes">Martes</label><br>
+        <input type="checkbox" id="miercoles" name="dias" value="miercoles">
+        <label for="miercoles">Miércoles</label><br>
+        <input type="checkbox" id="jueves" name="dias" value="jueves">
+        <label for="jueves">Jueves</label><br>
+        <input type="checkbox" id="viernes" name="dias" value="viernes">
+        <label for="viernes">Viernes</label><br><br>
+
+        <label for="dia_preferente">Selecciona el día preferente:</label><br>
+        <select id="dia_preferente" name="dia_preferente">
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miércoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+        </select><br><br>
+
+        <button type="submit">Haz clic para enviar información</button>
+        <button type="reset" onclick="limpiarFormulario()">Comenzar a rellenar de nuevo</button>
+        <button type="button" onclick="redirigir()">Haz clic sobre mí</button>
+    </form>
+</body>
+
+</html>
