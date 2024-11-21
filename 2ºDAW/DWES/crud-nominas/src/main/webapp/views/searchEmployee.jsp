@@ -58,7 +58,7 @@
         <tr>
             <td>
                 <button><a href="empresa?option=editEmployee&dni=<%= employee.getDni() %>">
-                    Customize
+                    Modify
                 </a>
                 </button>
             </td>

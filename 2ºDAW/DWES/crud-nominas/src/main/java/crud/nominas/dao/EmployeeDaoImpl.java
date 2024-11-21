@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDaoImpl implements EmployeeDao {
+public class EmployeeDaoImpl extends FactoryDAO implements EmployeeDao  {
     private final static EmployeeDaoImpl instance;
 
     static {

@@ -1,6 +1,8 @@
-package crud.nominas.servlet;
+package crud.nominas.controller;
 
+import crud.nominas.dao.EmployeeDao;
 import crud.nominas.dao.EmployeeDaoImpl;
+import crud.nominas.dao.FactoryDAO;
 import crud.nominas.model.Employee;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,11 +19,11 @@ import java.util.List;
 
 
 @WebServlet(description = "Employee " + "Servlet", urlPatterns = {"/empresa"})
-public class EmployeeServlet extends HttpServlet {
+public class EmployeeController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
-    public EmployeeServlet() {
+    private static final EmployeeDaoImpl empleadoDaoImpl = FactoryDAO.getDao(EmployeeDaoImpl.class);
+    public EmployeeController() {
 
     }
 
@@ -40,18 +42,16 @@ public class EmployeeServlet extends HttpServlet {
 
         if (option.equals("create")) {
             req.setAttribute("option", "create");
-//            RequestDispatcher rd = req.getRequestDispatcher("/views/addEmployee.jsp");
-            RequestDispatcher rd = req.getRequestDispatcher("/views/singleView.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
             rd.forward(req, resp);
         }
         else if (option.equals("listing")) {
             req.setAttribute("option", "listing");
-            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
+//            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             try {
                 List<Employee> employeeList = empleadoDaoImpl.getAll();
                 req.setAttribute("EmployeeList", employeeList);
-//                RequestDispatcher rd = req.getRequestDispatcher("/views/allEmployee.jsp");
-                RequestDispatcher rd = req.getRequestDispatcher("/views/singleView.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
                 rd.forward(req, resp);
             }
             catch (Exception ex) {
@@ -60,26 +60,24 @@ public class EmployeeServlet extends HttpServlet {
         }
         else if (option.equals("salary")) {
             req.setAttribute("option", "salary");
-//            RequestDispatcher rd = req.getRequestDispatcher("/views/searchSalary.jsp");
-            RequestDispatcher rd = req.getRequestDispatcher("/views/singleView.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
             rd.forward(req, resp);
 
         }
         else if (option.equals("search")) {
             req.setAttribute("option", "search");
-//            RequestDispatcher rd = req.getRequestDispatcher("/views/searchEmployee.jsp");
-            RequestDispatcher rd = req.getRequestDispatcher("/views/singleView.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
             rd.forward(req, resp);
         }
         else if (option.equals("editEmployee")) {
-            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
+            req.setAttribute("option","editEmployee");
+//            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             String dni = req.getParameter("dni");
             Employee empl = new Employee();
             try {
                 empl = empleadoDaoImpl.getByDni(dni);
                 req.setAttribute("Employee", empl);
-//                RequestDispatcher rd = req.getRequestDispatcher("/views/editEmployee.jsp");
-                RequestDispatcher rd = req.getRequestDispatcher("/views/singleView.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
                 rd.forward(req, resp);
             }
             catch (SQLException ex) {
@@ -87,7 +85,7 @@ public class EmployeeServlet extends HttpServlet {
             }
         }
         else if (option.equals("deleteEmployee")) {
-            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
+//            EmployeeDaoImpl empleadoDaoImpl = EmployeeDaoImpl.getInstance();
             String dni = req.getParameter("dni");
             try {
                 empleadoDaoImpl.delete(dni);
@@ -170,12 +168,12 @@ public class EmployeeServlet extends HttpServlet {
      * @param session
      */
     private void pushEmployee(HttpServletRequest req, HttpSession session) {
-        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
+//        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
         Employee empl = new Employee();
         try {
             if (isValidParams(req, session)) {
                 empl = assignParams(req);
-                emplDaoImpl.add(empl);
+                empleadoDaoImpl.add(empl);
             }
         }
         catch (Exception ex) {
@@ -190,12 +188,12 @@ public class EmployeeServlet extends HttpServlet {
      * @param session
      */
     private void editEmployee(HttpServletRequest req, HttpSession session) {
-        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
+//        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
         Employee empl = new Employee();
         try {
             if (isValidParams(req, session)) {
                 empl = assignParams(req);
-                emplDaoImpl.update(empl);
+                empleadoDaoImpl.update(empl);
             }
             else {
                 session.setAttribute("error", "Invalid parameters");
@@ -243,11 +241,11 @@ public class EmployeeServlet extends HttpServlet {
      * @return Employee object if found, null otherwise.
      */
     private Employee searchSalary(HttpServletRequest req, HttpSession session) {
-        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
+//        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
         Employee empl = null;
         try {
             if (isDniValid(req, session) && isEmployeeExisting(req.getParameter("dni"))) {
-                empl = emplDaoImpl.getByDni(req.getParameter("dni"));
+                empl = empleadoDaoImpl.getByDni(req.getParameter("dni"));
             }
         }
         catch (Exception ex) {
@@ -268,12 +266,12 @@ public class EmployeeServlet extends HttpServlet {
      * @return All employees that match the search.
      */
     private List<Employee> searchEmployee(HttpServletRequest req, HttpSession session) {
-        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
+//        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
         List<Employee> employeeList = new ArrayList<>();
         Employee empl = new Employee();
         empl = addParams(req, empl);
         try {
-            employeeList = emplDaoImpl.getByAnything(empl);
+            employeeList = empleadoDaoImpl.getByAnything(empl);
         }
         catch (SQLException ex) {
             ex.printStackTrace();
@@ -289,9 +287,9 @@ public class EmployeeServlet extends HttpServlet {
      * @return True if the employee exists, otherwise false.
      */
     private boolean isEmployeeExisting(String dni) {
-        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
+//        EmployeeDaoImpl emplDaoImpl = EmployeeDaoImpl.getInstance();
         try {
-            if (emplDaoImpl.getByDni(dni) != null) {
+            if (empleadoDaoImpl.getByDni(dni) != null) {
                 return true;
             }
         }
