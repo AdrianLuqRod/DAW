@@ -8,9 +8,8 @@ let score = 0;
 
 const brickRowCount = 9;
 const brickColumnCount = 5;
-const delay = 500; //delay to reset the game
 
-// Create ball props
+// Crear propiedades de la bola
 const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
@@ -21,7 +20,7 @@ const ball = {
   visible: true,
 };
 
-// Create paddle props
+// Crear propiedades de la paleta
 const paddle = {
   x: canvas.width / 2 - 40,
   y: canvas.height - 20,
@@ -32,7 +31,7 @@ const paddle = {
   visible: true,
 };
 
-// Create brick props
+// Crear propiedades de los ladrillos
 const brickInfo = {
   w: 70,
   h: 20,
@@ -42,7 +41,7 @@ const brickInfo = {
   visible: true,
 };
 
-// Create bricks
+// Crear ladrillos
 const bricks = [];
 for (let i = 0; i < brickRowCount; i++) {
   bricks[i] = [];
@@ -53,7 +52,7 @@ for (let i = 0; i < brickRowCount; i++) {
   }
 }
 
-// Draw ball on canvas
+// Dibujar la bola en el canvas
 function drawBall() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
@@ -62,7 +61,7 @@ function drawBall() {
   ctx.closePath();
 }
 
-// Draw paddle on canvas
+// Dibujar la paleta en el canvas
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
@@ -71,13 +70,13 @@ function drawPaddle() {
   ctx.closePath();
 }
 
-// Draw score on canvas
+// Dibujar la puntuación en el canvas
 function drawScore() {
   ctx.font = "20px Arial";
   ctx.fillText(`Puntuación: ${score}`, canvas.width - 100, 30);
 }
 
-// Draw bricks on canvas
+// Dibujar los ladrillos en el canvas
 function drawBricks() {
   bricks.forEach((column) => {
     column.forEach((brick) => {
@@ -90,11 +89,11 @@ function drawBricks() {
   });
 }
 
-// Move paddle on canvas
+// Mover la paleta en el canvas
 function movePaddle() {
   paddle.x += paddle.dx;
 
-  // Wall detection
+  // Detección de colisión con las paredes
   if (paddle.x + paddle.w > canvas.width) {
     paddle.x = canvas.width - paddle.w;
   }
@@ -104,24 +103,22 @@ function movePaddle() {
   }
 }
 
-// Move ball on canvas
+// Mover la bola en el canvas
 function moveBall() {
   ball.x += ball.dx;
   ball.y += ball.dy;
 
-  // Wall collision (right/left)
+  // Colisión con las paredes (derecha/izquierda)
   if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
     ball.dx *= -1; // ball.dx = ball.dx * -1
   }
 
-  // Wall collision (top/bottom)
+  // Colisión con las paredes (arriba/abajo)
   if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
     ball.dy *= -1;
   }
 
-  // console.log(ball.x, ball.y);
-
-  // Paddle collision
+  // Colisión con la paleta
   if (
     ball.x - ball.size > paddle.x &&
     ball.x + ball.size < paddle.x + paddle.w &&
@@ -130,15 +127,15 @@ function moveBall() {
     ball.dy = -ball.speed;
   }
 
-  // Brick collision
+  // Colisión con los ladrillos
   bricks.forEach((column) => {
     column.forEach((brick) => {
       if (brick.visible) {
         if (
-          ball.x - ball.size > brick.x && // left brick side check
-          ball.x + ball.size < brick.x + brick.w && // right brick side check
-          ball.y + ball.size > brick.y && // top brick side check
-          ball.y - ball.size < brick.y + brick.h // bottom brick side check
+          ball.x - ball.size > brick.x && // chequeo del lado izquierdo del ladrillo
+          ball.x + ball.size < brick.x + brick.w && // chequeo del lado derecho del ladrillo
+          ball.y + ball.size > brick.y && // chequeo del lado superior del ladrillo
+          ball.y - ball.size < brick.y + brick.h // chequeo del lado inferior del ladrillo
         ) {
           ball.dy *= -1;
           brick.visible = false;
@@ -149,14 +146,14 @@ function moveBall() {
     });
   });
 
-  // Hit bottom wall - Lose
+  // Colisión con la pared inferior - Perder
   if (ball.y + ball.size > canvas.height) {
     showAllBricks();
     score = 0;
   }
 }
 
-// Increase score
+// Incrementar la puntuación
 function increaseScore() {
   score++;
 
@@ -164,7 +161,7 @@ function increaseScore() {
     ball.visible = false;
     paddle.visible = false;
 
-    //After 0.5 sec restart the game
+    // Después de 0.5 segundos reiniciar el juego
     setTimeout(function () {
       showAllBricks();
       score = 0;
@@ -178,16 +175,16 @@ function increaseScore() {
   }
 }
 
-// Make all bricks appear
+// Hacer que todos los ladrillos aparezcan
 function showAllBricks() {
   bricks.forEach((column) => {
     column.forEach((brick) => (brick.visible = true));
   });
 }
 
-// Draw everything
+// Dibujar todo
 function draw() {
-  // clear canvas
+  // Limpiar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   drawBall();
@@ -196,12 +193,12 @@ function draw() {
   drawBricks();
 }
 
-// Update canvas drawing and animation
+// Actualizar el dibujo y la animación del canvas
 function update() {
   movePaddle();
   moveBall();
 
-  // Draw everything
+  // Dibujar todo
   draw();
 
   requestAnimationFrame(update);
@@ -209,7 +206,7 @@ function update() {
 
 update();
 
-// Keydown event
+// Evento de presionar tecla
 function keyDown(e) {
   if (e.key === "Right" || e.key === "ArrowRight") {
     paddle.dx = paddle.speed;
@@ -218,7 +215,7 @@ function keyDown(e) {
   }
 }
 
-// Keyup event
+// Evento de soltar tecla
 function keyUp(e) {
   if (
     e.key === "Right" ||
@@ -230,10 +227,10 @@ function keyUp(e) {
   }
 }
 
-// Keyboard event handlers
+// Manejadores de eventos del teclado
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
 
-// Rules and close event handlers
+// Manejadores de eventos de reglas y cerrar
 rulesBtn.addEventListener("click", () => rules.classList.add("show"));
 closeBtn.addEventListener("click", () => rules.classList.remove("show"));
