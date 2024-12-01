@@ -1,28 +1,40 @@
-<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palo Pelota MENÚ</title>
+    <link rel="stylesheet" href="estilos/index.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <h1>Bienvenido a Palo Pelota</h1>
+      <a href="webs/juego.html" id="boton-inicio">Iniciar partida</a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROYECTO</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
+      <a href="#" onclick="mostrarInfo()" id="pruebaDiff"
+        >Acerca del proyecto</a
+      >
 
-<body>
-    <h1>Palo Pelota, el juego.</h1>
-    <button id="rules-btn" class="btn rules-btn">Mostrar reglas</button>
-    <div id="rules" class="rules">
-        <h2>¡Reglas!</h2>
+      <label for="dificultad">Elige dificultad</label>
+      <select name="dificultad" id="dificultad">
+        <option value="1">Fácil</option>
+        <option value="2">Normal</option>
+        <option value="3">Difícil</option>
+      </select>
+
+      <div class="info" id="info">
+        <h2>Breakout o <em>'Palo Pelota'</em> para los amigos.</h2>
+        <p>Se trata de un juego clásico arcade lanzado por Atari en 1976</p>
         <p>
-            Aquí van unas reglas tope chulas.
+          El proyecto me tomó alrededor de 13 horas en hacer, incluyendo todos
+          los estilos, la lógica del juego (el tema de las colisiones que es
+          <strong> <em>' fAsCiNaNtE '</em></strong
+          >) el buscar los sonidos, hacer el fondo, etc. Al final he desechado
+          ideas como el sistema de puntuaciones o power-ups ya que me estaba
+          tomando demasiado tiempo y añadía demasiada complejidad al código.
         </p>
-        <p>Jejej.</p>
-        <button id="close-btn" class="btn">Cerrar</button>
+        <button onclick="ocultarInfo()">Cerrar</button>
+      </div>
     </div>
-
-    <canvas id="canvas" width="800" height="600"></canvas>
-
-    <script src="script.js"></script>
-</body>
-
+  </body>
+  <script src="scripts/index.js"></script>
 </html>

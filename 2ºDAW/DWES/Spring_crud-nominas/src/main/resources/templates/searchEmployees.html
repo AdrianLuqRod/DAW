@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees!</title>
+    <link rel="stylesheet" href="/styleSearchEmployee.css" />
+</head>
+<body>
+<h1>Search Employees with ANY information!</h1>
+<form action="/employees/searchEmployees" method="get">
+    <input type="hidden" name="option" value="searchEmployee"/>
+
+    <table>
+        <tr>
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" id="dni" th:value="${param.dni}"/>
+        </tr>
+        <tr>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" th:value="${param.name}" pattern="[A-Za-z\s]+"
+                   title="Only letters are allowed"/>
+        </tr>
+        <tr>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="" th:selected="${param.gender == ''}">M & F</option>
+                <option value="M" th:selected="${param.gender == 'M'}">M</option>
+                <option value="F" th:selected="${param.gender == 'F'}">F</option>
+            </select>
+        </tr>
+        <tr>
+            <label for="category">Category:</label>
+            <input type="number" name="category" id="category" th:value="${param.category}" min="1" max="10"
+                   title="Only numbers between 1 and 10 are allowed"/>
+        </tr>
+        <tr>
+            <label for="workingYears">Working Years:</label>
+            <input type="number" name="workingYears" id="workingYears" min="0" th:value="${param.work_years}"
+                   title="Only numbers are allowed"/>
+        </tr>
+    </table>
+    <span><input type="submit" value="Search"/></span>
+</form>
+<table>
+    <div th:if="${foundEmployees != null and foundEmployees.size() > 0}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DNI</th>
+                <th>Gender</th>
+                <th>Category</th>
+                <th>Working Years</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="employee : ${foundEmployees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.dni}"></td>
+                <td th:text="${employee.gender}"></td>
+                <td th:text="${employee.category}"></td>
+                <td th:text="${employee.work_years}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${foundEmployees == null or foundEmployees.size() == 0}">
+        <p>No employees were found.</p>
+    </div>
+</table>
+
+<p><a href="/">Back to index</a></p>
+<p><a href="javascript:history.back()">Previous page</a></p>
+
+</body>
+</html>

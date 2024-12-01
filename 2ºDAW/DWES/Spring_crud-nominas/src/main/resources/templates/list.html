@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Employees in the DataBase!</title>
+    <link rel="stylesheet" href="styleAllEmployee.css"/>
+</head>
+<body>
+<h1>All employees in DataBase</h1>
+
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>DNI</td>
+        <td>Name</td>
+        <td>Gender</td>
+        <td>Category</td>
+        <td>Working Years</td>
+        <td>Salary</td>
+        <td>EXTRA</td>
+        <td>EXTRA2</td>
+    </tr>
+    <tbody>
+
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.dni}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.gender}"></td>
+        <td th:text="${employee.category}"></td>
+        <td th:text="${employee.work_years}"></td>
+        <td th:text="${salary.get(employee.dni)}"></td>
+        <td>
+
+            <form th:action="@{/employees/edit/{dni}(dni=${employee.dni})}" method="get">
+                <input type="submit" value="Editar">
+            </form>
+        </td>
+        <td>
+
+            <form th:action="@{/employees/delete/{dni}(dni=${employee.dni})}" method="get">
+                <input type="submit" value="Eliminar">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p><a href="/">Back to index</a></p>
+<p><a href="javascript:history.back()">Previous page</a></p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styleEditEmployee.css"/>
+</head>
+<body>
+<h1>Edit an Employee!</h1>
+
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<form th:action="@{/employees/updateEmployee}" method="post">
+    <input type="hidden" name="option" value="edit"/>
+    <input type="hidden" name="dni" th:value="${employee.dni}"/>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input
+                        th:value="${employee.name}"
+                        type="text"
+                        name="name"
+                        pattern="[A-Za-z\s]+"
+                        title="Only letters are allowed"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <select name="gender" id="gender">
+                    <option value="M" th:selected="${employee.gender == 'M'}">M</option>
+                    <option value="F" th:selected="${employee.gender == 'F'}">F</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <input
+                        th:value="${employee.category}"
+                        type="number"
+                        name="category"
+                        min="1"
+                        max="10"
+                        title="Only numbers between 1 and 10 are allowed"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Working Years:</td>
+            <td>
+                <input
+                        th:value="${employee.work_years}"
+                        type="number"
+                        name="work_years"
+                        min="0"
+                        title="Only numbers are allowed"
+                />
+            </td>
+        </tr>
+    </table>
+    <span><input type="submit" value="Save"/></span>
+    <p><a href="/">Back to index</a></p>
+    <p><a href="javascript:history.back()">Previous page</a></p>
+</form>
+</body>
+</html>

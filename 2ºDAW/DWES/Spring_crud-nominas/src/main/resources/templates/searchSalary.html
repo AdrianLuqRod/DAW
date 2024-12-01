@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary!</title>
+    <!--    No funciona CSS-->
+    <link rel="stylesheet" href="/styleSearchSalary.css"/>
+</head>
+<body>
+<h1>Find any Salary bounded to DNI! </h1>
+<!-- Mostrar mensajes de error o éxito -->
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+
+<form th:action="@{/employees/searchSalary}" method="get">
+    <input type="hidden" name="option" value="searchSalary"/>
+    <label for="dni">DNI:</label>
+    <input type="text" name="dni" id="dni"/>
+    <span><input type="submit" value="Buscar"/></span>
+
+    <table>
+        <tr>
+            <td>DNI</td>
+            <td>Salary</td>
+        </tr>
+        <!-- Usamos Thymeleaf para recorrer los empleados -->
+        <tr th:if="${employee!=null}">
+            <td th:text="${employee.dni}"></td>
+            <td th:text="${salary}"></td>
+        </tr>
+    </table>
+</form>
+<p><a href="/">Back to index</a></p>
+<p><a href="javascript:history.back()">Previous page</a></p>
+</body>
+</html>

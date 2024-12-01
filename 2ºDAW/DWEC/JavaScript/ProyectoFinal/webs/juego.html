@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROYECTO</title>
+    <link rel="stylesheet" href="../estilos/juego.css" />
+  </head>
+  <body>
+    <h1>Palo Pelota, el juego.</h1>
+    <button id="boton-reglas" class="btn boton-reglas">Mostrar reglas</button>
+    <div id="reglas" class="reglas">
+      <h2>¡Reglas!</h2>
+      <p>
+        Palo pelota es un juego que consiste en romper los ladrillos con la
+        pelota haciendo que rebote con tu "paddle" (lo que controlas con las
+        flechas).
+      </p>
+      <p>Dependiendo de la dificultad hay varios tipos de ladrillos:</p>
+      <p>
+        <strong>-Azules: </strong>Son los más básicos, aguantan 1 solo golpe.
+      </p>
+      <p><strong>-Naranjas: </strong>Son los intermedios, aguantan 2 golpes.</p>
+      <p><strong>-Morados: </strong>Los más resistentes, aguantan 3 golpes.</p>
+      <button id="cerrar-boton" class="btn">Cerrar</button>
+    </div>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <div class="menu">
+      <h1>Bienvenido a Palo Pelota</h1>
+      <a href="#" onclick="reanudarPartida()">Reanudar</a>
+      <a href="#" onclick="mostrarControles()">Controles</a>
+      <a href="../index.html">Volver al menú</a>
+    </div>
+
+    <div class="controles" id="controles">
+      <h2>Controles del Juego</h2>
+      <p>Para mover la paleta, usa las flechas izquierda y derecha.</p>
+      <p>Presiona "Escape" para pausar el juego.</p>
+      <button onclick="ocultarControles()">Cerrar</button>
+    </div>
+
+    <div class="fin-partida" id="fin-partida">
+      <h2>Derrota</h2>
+      <p>Has perdido, reiniciando partida...</p>
+      <button onclick="ocultarFinPartida()">Cerrar</button>
+    </div>
+
+    <script src="../scripts/juego.js"></script>
+  </body>
+</html>

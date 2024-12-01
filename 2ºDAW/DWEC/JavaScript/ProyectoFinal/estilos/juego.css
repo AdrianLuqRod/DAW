@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2c1f44;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+  background: #fff;
+  transition: filter 0.5s ease; /* Añadir transición al filtro */
+  border: 1px solid red;
+  box-shadow: 0 0 10px #c80d47, 0 0 20px #c80d47, 0 0 30px #c80d47,
+    0 0 40px #c80d47;
+  border-radius: 2%;
+}
+
+h1 {
+  margin: 0 0 3rem; /* Añadir margen inferior para separar del canvas */
+  transition: filter 0.5s ease; /* Añadir transición al filtro */
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.menu h1 {
+  margin-bottom: 20px;
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background: #ff6600;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background: #ff4500;
+}
+
+.controles,
+.fin-partida {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.controles h2 {
+  margin-bottom: 20px;
+}
+
+.boton-reglas {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.reglas {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.reglas h2 {
+  margin-top: 0;
+}
+
+.reglas .btn {
+  background: #555;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
